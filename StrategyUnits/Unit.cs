@@ -4,11 +4,13 @@
     {
         private int _health;
         private string? _name;
+        private int _maxHealth;
 
         public Unit(int health, string? name)
         {
             _health = health;
             _name = name;
+            _maxHealth = _health;
         }
 
         public string Name
@@ -17,10 +19,20 @@
             set { _name = value; }
         }
 
+        public int MaxHealth
+        {
+            get { return _maxHealth; }
+            
+        }
+
         public int Health 
         { 
             get => _health; 
-            set => _health = value; 
+            set
+            {
+                if(value < 0) { _health = 0;}
+                else { _health = value; }
+            } 
         }
 
         public void Move()
@@ -30,7 +42,8 @@
 
         public void ShowInfo()
         {
-            Console.WriteLine($"Unit: {_name} Health: {_health}");
+            Console.WriteLine($"Unit: {_name} Health: {_health} ");
+            
         }
     }
 }
