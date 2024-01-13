@@ -10,3 +10,4 @@ footman.InflictDamage(ps1);
 footman.InflictDamage(footman2);
 ps1.ShowInfo();
 footman2.ShowInfo();
+
