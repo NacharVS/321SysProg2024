@@ -17,7 +17,14 @@
 
         public void InflictDamage(Unit unit)
         {
-            unit.Health -= _damage;
+            if (unit.Health < _damage)
+            {
+                unit.Health = 0;
+                Console.WriteLine($"Умер - {unit.Name}");
+            }
+            else
+                unit.Health -= _damage;
+
         }
 
     }
