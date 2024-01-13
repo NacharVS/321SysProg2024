@@ -10,9 +10,9 @@
             set { _damage = value; }
         }
 
-        public Footman() : base(60, "Footman")
+        public Footman() : base(60, "Footman", 60)
         {
-            _damage = 7;
+            _damage = 30;
         }
 
         public void InflictDamage(Unit unit)
