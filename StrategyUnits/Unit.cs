@@ -9,6 +9,8 @@
         {
             _health = health;
             _name = name;
+            MaxHealth = _health;
+
         }
 
         public string Name
@@ -17,20 +19,32 @@
             set { _name = value; }
         }
 
-        public int Health 
-        { 
-            get => _health; 
-            set => _health = value; 
+        public int MaxHealth { get; private set; }
+        public int Health
+        {
+            get => _health;
+            set
+            {
+                if (value < 0)
+                {
+                    _health = 0;
+                }
+                else
+                {
+                    _health = value;
+                }
+            }
         }
 
         public void Move()
         {
             Console.WriteLine("Is moving");
         }
-
         public void ShowInfo()
         {
-            Console.WriteLine($"Unit: {_name} Health: {_health}");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"Unit: {_name} Health: {_health}/{MaxHealth}");
+            Console.ResetColor();
         }
     }
 }

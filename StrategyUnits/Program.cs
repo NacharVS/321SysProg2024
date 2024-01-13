@@ -1,12 +1,37 @@
 ﻿using StrategyUnits;
 
-Footman footman = new Footman();
-Footman footman2 = new Footman();
-Peasant ps1 = new Peasant();
+Footman enemy = new Footman();
+Footman ally = new Footman();
+Peasant peasant = new Peasant();
+Healer healer = new Healer();
+Altar altar = new Altar("Психушка", 1000);
 
-ps1.ShowInfo();
-footman2.ShowInfo();
-footman.InflictDamage(ps1);
-footman.InflictDamage(footman2);
-ps1.ShowInfo();
-footman2.ShowInfo();
+enemy.InflictDamage(ally);
+enemy.InflictDamage(ally);
+enemy.InflictDamage(ally);
+enemy.InflictDamage(ally);
+ally.ShowInfo();
+
+healer.InflictHeal(ally);
+ally.ShowInfo();
+
+healer.ShowHealerInfo();
+
+enemy.InflictDamage(ally);
+enemy.InflictDamage(ally);
+enemy.InflictDamage(ally);
+enemy.InflictDamage(ally);
+enemy.InflictDamage(ally);
+enemy.InflictDamage(ally);
+enemy.InflictDamage(ally);
+ally.ShowInfo();
+
+healer.InflictHeal(ally);
+ally.ShowInfo();
+
+healer.ShowHealerInfo();
+
+Console.WriteLine();
+
+altar.RegenerateStamina(healer);
+
