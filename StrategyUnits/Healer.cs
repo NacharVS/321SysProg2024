@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace StrategyUnits
 {
@@ -45,6 +46,10 @@ namespace StrategyUnits
             }
             Console.WriteLine("Юнит здоров либо нет маны!");
 
+        }
+        public void ShowMainInfo()
+        {
+            Console.WriteLine($"Mana: {_mana}/{MaxMana}");
         }
     }
 }
