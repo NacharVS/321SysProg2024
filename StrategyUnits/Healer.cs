@@ -10,6 +10,7 @@ namespace StrategyUnits
     {
         private int _heal;
         private int _mana;
+        public int MaxMana { get; private set; }
 
         public int Heal { 
             get { return _heal; }
@@ -24,7 +25,8 @@ namespace StrategyUnits
         public Healer() : base(50, "Healer")
         {
             _heal = 1;
-            _mana = 2;
+            _mana = 30;
+            MaxMana = _mana;
         }
         public void AddHeal(Unit unit)
         {
