@@ -47,7 +47,7 @@ namespace StrategyUnits
             Console.WriteLine("Юнит здоров либо нет маны!");
 
         }
-        public void ShowMainInfo()
+        public void ShowManaInfo()
         {
             Console.WriteLine($"Mana: {_mana}/{MaxMana}");
         }
