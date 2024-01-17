@@ -2,19 +2,23 @@
 {
     internal class Unit
     {
+
+        public delegate void HealthChangedDelegate(int health);
         private int _currentHealth;
         private int _currentStamina;
         private string? _name;
         private int _stamina;
         private int _health;
+        private int _defense;
 
-        public Unit(int health, string? name, int stamina)
+        public Unit(int health, string? name, int stamina, int defense)
         {
             _currentHealth = health;
             _name = name;
             _currentStamina = stamina;
             _health = _currentHealth;
             _stamina = _currentStamina;
+            _defense = defense;
         }
 
         public string Name
@@ -27,13 +31,23 @@
         {
             get
             {
-                 return _currentHealth;
+                return _currentHealth;
             }
-            set {
+            set
+            {
+                if (_currentHealth - value < 0)
+                    HealthIncreasedEvent?.Invoke(_currentHealth);
+                else
+                    HealthDecreasedEvent?.Invoke(_currentHealth);
                 if (value < 0)
                     _currentHealth = 0;
                 else
                     _currentHealth = value;
+                if (value > _health)
+                    _currentHealth = _health;
+                else
+                    _currentHealth = value;
+
             }
 
         }
@@ -49,15 +63,26 @@
             }
 
         }
+        public int Defense
+        {
+            get { return _defense; }
+            set
+            {
+                if (value < 0)
+                    _defense = 0;
+                else
+                    _defense = value;
+            }
+        }
 
         public void Move()
         {
             Console.WriteLine("Is moving");
         }
 
-        public void ShowInfo()
+        public virtual void ShowInfo()
         {
-            Console.WriteLine($"Unit: {_name} Health: {_currentHealth} Stamina: {_currentStamina}");
+            Console.WriteLine($"Unit: {_name} Health: {_currentHealth}/{_health}  Stamina: {_currentStamina} ");
         }
 
         public int GetMaxHP()
@@ -65,5 +90,7 @@
             return _health;
         }
 
+        public event HealthChangedDelegate HealthIncreasedEvent;
+        public event HealthChangedDelegate HealthDecreasedEvent;
     }
 }
