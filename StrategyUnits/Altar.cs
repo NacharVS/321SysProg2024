@@ -37,16 +37,16 @@ namespace StrategyUnits
             _unbreaking = unbreaking;
         }
 
-        public void RegenerateStamina(Healer healer)
-        {
-            while (healer.Stamina < healer.MaxStamina)
-            {
-                healer.Stamina += 2;
-                Thread.Sleep(millisecondsTimeout: 100);
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"+2 stamina || {healer.Stamina}/{healer.MaxStamina}");
-                Console.ResetColor();
-            }
-        }
+        //public void RegenerateStamina(Healer healer)
+        //{
+        //    while (healer.Stamina < healer.MaxStamina)
+        //    {
+        //        healer.Stamina += 2;
+        //        Thread.Sleep(millisecondsTimeout: 100);
+        //        Console.ForegroundColor = ConsoleColor.Yellow;
+        //        Console.WriteLine($"+2 stamina || {healer.Stamina}/{healer.MaxStamina}");
+        //        Console.ResetColor();
+        //    }
+        //}
     }
 }

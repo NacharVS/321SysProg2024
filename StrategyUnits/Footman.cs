@@ -1,24 +1,14 @@
-﻿namespace StrategyUnits
+﻿using System.Xml.Linq;
+
+namespace StrategyUnits
 {
-    internal class Footman : Unit
+    internal class Footman : MilitaryUnit
     {
-        private int _damage;
+        public Footman() : base("Болванчик",60,3, 12) { }
 
-        public int Damage
+        public override void ShowInfo()
         {
-            get { return _damage; }
-            set { _damage = value; }
+            Console.WriteLine($"Юнит: {Name} | Здоровье: {Health}/{MaxHealth} | Броня: {Defense}");
         }
-
-        public Footman() : base(60, "Footman")
-        {
-            _damage = 7;
-        }
-
-        public void InflictDamage(Unit unit)
-        {
-            unit.Health -= _damage;
-        }
-
     }
 }
