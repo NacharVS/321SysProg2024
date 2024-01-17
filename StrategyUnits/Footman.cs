@@ -1,24 +1,18 @@
 ﻿namespace StrategyUnits
 {
-    internal class Footman : Unit
+    internal class Footman : MilitaryUnit
     {
-        private int _damage;
 
-        public int Damage
+
+        public Footman() : base(60, "Footman",2, 3, 7)
         {
-            get { return _damage; }
-            set { _damage = value; }
+
         }
 
-        public Footman() : base(60, "Footman")
+        public override void Attack(Unit unit)
         {
-            _damage = 7;
+            Console.Write("Пехотинец нанес дубиной ");
+            base.Attack(unit);
         }
-
-        public void InflictDamage(Unit unit)
-        {
-            unit.Health -= _damage;
-        }
-
     }
 }

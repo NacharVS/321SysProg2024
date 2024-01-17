@@ -9,36 +9,24 @@ namespace StrategyUnits
     internal class Temple: Unit
     {
         private int _Mana;
-        private int _EnTemple;
         public int Mana
         {
             get { return _Mana; }
             set { _Mana = value; }
         }
-        public int EnergyTem
-        {
-            get => _EnTemple;
-            set => _EnTemple = value;
-        }
 
-        public Temple() : base(30, "Temple")
+        public Temple() : base(30, "Temple", 0)
         {
             _Mana = 1;
-            _EnTemple = 100;
-
         }
-        public void InflictMAna(Wizard wizard)
+        public void InflictMAna(MagicUnit magicUnit)
         {
-            while (wizard.Energy < wizard.MAxEnergy && _EnTemple  > 0)
+            while (magicUnit.Energy < magicUnit.MAxEnergy)
             {
-
-                wizard.Energy += _Mana;
-                _EnTemple -= 1;
-
-
+                magicUnit.Energy += _Mana;
             }
           
         }
-        public override void ShowInfo() => Console.WriteLine($"Unit: {this.Name} Health: {this.Health}/{this.MaxHealth} Energy: {EnergyTem}");
+        public override void ShowInfo() => Console.WriteLine($"Unit: {this.Name} Health: {this.Health}/{this.MaxHealth}");
     }
 }
