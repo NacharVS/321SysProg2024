@@ -7,49 +7,41 @@ using System.Xml.Linq;
 
 namespace StrategyUnits
 {
-    internal class Healer : Unit
+    internal class Healer : magicUnit
     {
         private int _heal;
-        private int _mana;
-        public int MaxMana { get; private set; }
 
         public int Heal { 
             get { return _heal; }
             set { _heal = value; }
         }
-        public int Mana
-        {
-            get { return _mana;  }
-            set { _mana = value; }
-        }
         
-        public Healer() : base(50, "Healer")
+        public Healer() : base(50, "Healer", 0, 30, 2, 5)
         {
             _heal = 1;
-            _mana = 30;
-            MaxMana = _mana;
         }
         public void AddHeal(Unit unit)
         {
-            while (unit.Health < unit.MaxHealth && _mana>0)
+            while (unit.Health < unit.MaxHealth && Mana>0)
             {
-                if (unit.Health >= unit.MaxHealth)
+                if (unit.Health+1 >= unit.MaxHealth)
                 {
-                    Console.WriteLine("Юнит вылечен!");
                     unit.Health = unit.MaxHealth;
+                    unit.HealDamage(Health);
+                    Console.WriteLine($"{this.Name} вылечил {unit.Name}");
                 }
                 else
                 {
                     unit.Health += _heal;
-                    _mana -= _heal * 2;
+                    Mana -= 2;
                 }
             }
             Console.WriteLine("Юнит здоров либо нет маны!");
 
         }
-        public void ShowManaInfo()
+        public override void ShowInfo()
         {
-            Console.WriteLine($"Mana: {_mana}/{MaxMana}");
+            Console.WriteLine($"Юнит:{this.Name} Mana: {Mana}/{MaxMana} Здровье: {Health}/{MaxHealth}");
         }
     }
 }

@@ -19,9 +19,9 @@ namespace StrategyUnits
         {
             _addMana = 10;
         }
-        public void AddManaToUnit(Healer healer)
+        public void AddManaToUnit(magicUnit magicUnit)
         {
-            healer.Mana += _addMana;
+            magicUnit.Mana += _addMana;
         }
     }
 }
