@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StrategyUnits
+namespace StrategyUnits.MilitaryUnits.MagicUnits
 {
     internal class Healer : MagicUnit
     {
@@ -16,7 +16,7 @@ namespace StrategyUnits
             set { _heal = value; }
         }
 
-        public Healer() : base("Хилер",0,100)
+        public Healer() : base("Мэджик Хилер", 15, 1, 10, 25, 100)
         {
 
         }
@@ -25,18 +25,25 @@ namespace StrategyUnits
         {
             Console.WriteLine($"Юнит: {Name} | Здоровье: {Health}/{MaxHealth} | Броня: {Defense} | Мана: {Mana}/{MaxMana}");
         }
-        
-        public void InflictHeal(Unit unit) 
-        {
-            if (unit.Health <= 0)
-                return;
 
-            while(unit.Health < unit.MaxHealth) 
+        public void InflictHeal(Unit healedUnit)
+        {
+            if (healedUnit.Health <= 0)
+            {
+                Console.WriteLine("Челик сдох");
+                return;
+            }
+
+            while (healedUnit.Health < healedUnit.MaxHealth)
             {
                 if (Mana == 0)
+                {
+                    Console.WriteLine("Мана закончилась");
                     return;
+                }
                 Mana -= 2;
-                unit.Health++;
+                Console.WriteLine($"{Name} хилит {healedUnit.Name.ToLower()}а по 1 хп и тратит 2 маны (осталось {Mana}/{MaxMana})");
+                healedUnit.Health++;
             }
 
         }

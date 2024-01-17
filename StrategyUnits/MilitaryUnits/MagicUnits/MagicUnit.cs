@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StrategyUnits
+namespace StrategyUnits.MilitaryUnits.MagicUnits
 {
     internal class MagicUnit : MilitaryUnit
     {
         private int _mana;
+
         public int Mana
         {
             get { return _mana; }
@@ -22,15 +23,14 @@ namespace StrategyUnits
                     _mana = value;
             }
         }
-        public override string Name { get => base.Name; set => base.Name = value; }
         public int MaxMana { get; private set; }
-        public override int Defense => base.Defense;
-        public MagicUnit(string name, int defense, int mana) : base("Мэджик",15,1, 5)
+
+        public MagicUnit(string name, int health, int defense, int minDamage, int maxDamage, int mana)
+            : base(name, health, defense, minDamage, maxDamage)
         {
             Mana = mana;
             MaxMana = mana;
             Name = name;
-            Defense = defense;
         }
     }
 }

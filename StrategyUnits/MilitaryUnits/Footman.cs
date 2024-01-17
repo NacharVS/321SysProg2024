@@ -1,10 +1,10 @@
 ﻿using System.Xml.Linq;
 
-namespace StrategyUnits
+namespace StrategyUnits.MilitaryUnits
 {
     internal class Footman : MilitaryUnit
     {
-        public Footman() : base("Болванчик",60,3, 12) { }
+        public Footman(string name) : base(name, 60, 5, 3, 10) { }
 
         public override void ShowInfo()
         {

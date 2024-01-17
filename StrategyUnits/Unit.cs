@@ -1,19 +1,22 @@
 ﻿namespace StrategyUnits
 {
-    public delegate void HealthChangedDelegate(int health);
+    public delegate void HealthChangedDelegate(string name, int health);
     internal class Unit
     {
+        public event HealthChangedDelegate HealthChangedEvent;
+
         private int _health;
         private string? _name;
-        public virtual string Name
+
+
+        public string Name
         {
             get { return _name == null ? "" : _name; }
             set { _name = value; }
         }
-
-        public virtual int MaxHealth { get; set; }
-        public virtual int Defense { get; set; }
-        public virtual int Health
+        public int Defense { get; set; }
+        public int MaxHealth { get; private set; }
+        public int Health
         {
             get => _health;
             set
@@ -24,12 +27,8 @@
                     _health = MaxHealth;
                 else
                     _health = value;
-                //HealthChangedEvent?.Invoke(_health);
 
-                if (_health < value)
-                    HealthIncreasedEvent?.Invoke(_health);
-                else
-                    HealthDecreasedEvent?.Invoke(_health);
+                HealthChangedEvent?.Invoke(Name, _health);
             }
         }
 
@@ -45,14 +44,10 @@
         {
             Console.WriteLine("Двигается");
         }
+
         public virtual void ShowInfo()
         {
             Console.WriteLine($"Юнит: {_name} | Здоровье: {_health}/{MaxHealth}");
         }
-
-        public event HealthChangedDelegate HealthChangedEvent;
-
-        public event HealthChangedDelegate HealthIncreasedEvent;
-        public event HealthChangedDelegate HealthDecreasedEvent;
     }
 }
