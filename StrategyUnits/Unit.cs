@@ -1,5 +1,6 @@
 ﻿namespace StrategyUnits
 {
+    public delegate void HealthChangedDelegate(int health);
     internal class Unit
     {
         private int _currentHealth;
@@ -30,6 +31,7 @@
                 }
                 else
                     _currentHealth = value;
+                HealthChangedEvent?.Invoke(_currentHealth);
             }
         }
 
@@ -42,5 +44,10 @@
         {
             Console.WriteLine($"Unit: {_name} Health: {_currentHealth}/{MaxHealth}");
         }
+
+        public event HealthChangedDelegate HealthChangedEvent;
+
+        public event HealthChangedDelegate HealthIncreasedEvent;
+        public event HealthChangedDelegate HealthDecreasedEvent;
     }
 }
