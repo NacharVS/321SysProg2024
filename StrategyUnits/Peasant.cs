@@ -4,6 +4,7 @@
     {
         public Peasant() : base(30, "Peasant")
         {
+            
         }
     }
 }
