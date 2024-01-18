@@ -31,9 +31,10 @@ namespace StrategyUnits
         {
             Random rnd = new Random();
             _damage = rnd.Next(minDamage, maxDamage);
+            _damage -= unit.Defence;
             unit.Health -= _damage;
             unit.TakeDamage(_damage);
-            Console.WriteLine($"Юнит: {this.Name} наносит удар своим болтом {_damage} единиц по {unit.Name}");
+            Console.WriteLine($"Юнит: {this.Name} наносит удар своим болтом {_damage} единиц по {unit.Name} при броне {unit.Defence}");
         }
     }
 }

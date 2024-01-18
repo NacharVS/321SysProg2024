@@ -22,7 +22,7 @@ namespace StrategyUnits
         }
         public void AddHeal(Unit unit)
         {
-            while (unit.Health < unit.MaxHealth && Mana>0)
+            while (unit.Health < unit.MaxHealth && Mana > 0)
             {
                 if (unit.Health+1 >= unit.MaxHealth)
                 {
@@ -34,10 +34,12 @@ namespace StrategyUnits
                 {
                     unit.Health += _heal;
                     Mana -= 2;
+                    if (Mana < 0)
+                    {
+                        Console.WriteLine("Нет маны!");
+                    }
                 }
             }
-            Console.WriteLine("Юнит здоров либо нет маны!");
-
         }
         public override void ShowInfo()
         {

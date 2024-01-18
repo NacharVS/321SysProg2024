@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace StrategyUnits
 {
-    internal class Berserker : militaryUnits
+    internal class Berserker : Footman
     {
-        public Berserker() : base(100, "Berserker", 10, 10, 15)
+        public Berserker(int health, string? name, int defence, int min_damage, int max_damage) : base(health, name, defence, min_damage, max_damage)
         {
         }
     }

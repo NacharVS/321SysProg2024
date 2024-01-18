@@ -7,7 +7,7 @@
     {
         private int _currentHealth;
         private string? _name;
-        private int Defence { get; set; }
+        public int Defence { get; set; }
         public int MaxHealth { get; private set; }
 
         public Unit(int health, string? name, int defence)
