@@ -1,18 +1,17 @@
 ﻿using StrategyUnits;
 
-Footman footman = new Footman();
-Footman footman2 = new Footman();
+Barracs barracs = new Barracs();
+Footman footman = barracs.CreateRecruitFootman();
+Footman footman2 = barracs.CreateVeteranFootman();
+
+
 Peasant ps1 = new Peasant();
 
 ps1.HealthChangedEvent += Method;
 
 
-ps1.ShowInfo();
 footman2.ShowInfo();
-footman.InflictDamage(ps1);
-footman.InflictDamage(footman2);
-ps1.ShowInfo();
-footman2.ShowInfo();
+footman.ShowInfo();
 
 
 static void Method(int number)

@@ -4,16 +4,22 @@
     {
         private int _damage;
 
+        public Footman(string? name, int health, int damage) : base(health, name)
+        {
+            _damage = damage;
+        }
+
         public int Damage
         {
             get { return _damage; }
             set { _damage = value; }
         }
 
-        public Footman() : base(60, "Footman")
-        {
-            _damage = 7;
-        }
+
+
+
+
+
 
         public void InflictDamage(Unit unit)
         {
