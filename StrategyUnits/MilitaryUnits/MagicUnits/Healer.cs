@@ -16,7 +16,7 @@ namespace StrategyUnits.MilitaryUnits.MagicUnits
             set { _heal = value; }
         }
 
-        public Healer() : base("Мэджик Хилер", 15, 1, 10, 25, 100)
+        public Healer(string name, int health, int defense, int minDamage, int maxDamage, int mana) : base(name, health, defense, minDamage, maxDamage, mana)
         {
 
         }

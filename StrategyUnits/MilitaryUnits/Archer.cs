@@ -8,9 +8,8 @@ namespace StrategyUnits.MilitaryUnits
 {
     internal class Archer : MilitaryUnit
     {
-        public Archer(string name) : base(name, 20, 3, 5, 15)
+        public Archer(string name, int health, int defense, int minDamage, int maxDamage) : base(name, health, defense, minDamage, maxDamage)
         {
-
         }
     }
 }

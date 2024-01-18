@@ -22,11 +22,9 @@ namespace StrategyUnits.MilitaryUnits
         {
             _minDamage = minDamage;
             _maxDamage = maxDamage;
-            Name = name;
-            Health = health;
         }
 
-        public void InflictDamage(Unit defender, Unit attacker)
+        public virtual void InflictDamage(Unit defender, Unit attacker)
         {
             Random random = new Random();
             _damage = random.Next(_minDamage, _maxDamage);
@@ -38,7 +36,7 @@ namespace StrategyUnits.MilitaryUnits
             else
             {
                 MilitaryUnitHitEvent.Invoke(attacker.Name, defender.Name, _damage, defender.Defense);
-
+                
                 defender.Health = defender.Health + (defender.Defense - _damage);
             }
         }
