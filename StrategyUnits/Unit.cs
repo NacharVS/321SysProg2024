@@ -1,9 +1,8 @@
 ﻿namespace StrategyUnits
 {
-    public delegate void HealthChangedDelegate(int health);
     internal class Unit
     {
-        private int _health;
+        private int _currentHealth;
         private string? _name;
         public int MaxHealth { get; private set; }
         public int Armor { get; set; }
@@ -11,31 +10,24 @@
 
         public Unit(int health, string? name, int armor)
         {
-            _health = health;
+            _currentHealth = health;
             _name = name;
             MaxHealth = health;
             Armor = armor;
         }
 
-        public string Name
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
+        public string Name;
 
         public int Health
         {
-            get => _health;
+            get => _currentHealth;
             set
             {
-                //HealthChangedEvent?.Invoke(_currentHealth);
-                if (value > _health) HealthIncreasedEvent?.Invoke(value);
-                else if (value < _health) HealthDecreasedEvent?.Invoke(value);
-                if (value < 0) _health = 0;
-                else if (value > MaxHealth) _health = MaxHealth;
-                else _health = value;
-
-
+                //if (value > _currentHealth) HealthIncreasedEvent?.Invoke(value);
+                //else if (value < _currentHealth) HealthDecreasedEvent?.Invoke(value);
+                if (value < 0) _currentHealth = 0;
+                else if (value > MaxHealth) _currentHealth = MaxHealth;
+                else _currentHealth = value;
             }
         }
         public void Move()
@@ -43,18 +35,18 @@
             Console.WriteLine("Is moving");
         }
 
-        public void TakeDamage(int damage)
+        public virtual void TakeDamage(int damage, Unit? unit)
         {
-            _health -= damage;
+            _currentHealth -= damage;
         }
 
         public virtual void ShowInfo()
         {
-            Console.WriteLine($"Unit: {_name} Health: {_health}");
+            Console.WriteLine($"Unit: {_name} Health: {_currentHealth}");
         }
 
-        public event HealthChangedDelegate HealthChangedEvent;
-        public event HealthChangedDelegate HealthIncreasedEvent;
-        public event HealthChangedDelegate HealthDecreasedEvent;
+        //public event HealthChangedDelegate HealthIncreasedEvent;
+        //public event HealthChangedDelegate HealthDecreasedEvent;
+
     }
 }
