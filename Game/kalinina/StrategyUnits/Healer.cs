@@ -10,9 +10,10 @@ namespace StrategyUnits
     internal class Healer : MagicUnit
     {
        
-        public Healer() : base (100, "Healer", 1, 2, 1,25)
+        public Healer() : base (100, "Healer", 1, 2, 1,25,1)
         {
             
-        }       
+        }
+        
     }
 }

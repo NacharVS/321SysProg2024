@@ -10,11 +10,14 @@ namespace StrategyUnits
     {
         private int _treat;
         private int _energy;
+        private int _maxEnergy;
 
-        public MagicUnit(int health, string? name, int min, int max, int treat, int energy) : base(health, name, min, max)
+        public MagicUnit(int health, string? name, int min, int max, int treat, int energy, int defense) : base(health, name, min, max, defense)
         {
             _treat = treat;
             _energy = energy;
+            _maxEnergy = energy;
+
         }
 
         public int Treat
@@ -23,10 +26,34 @@ namespace StrategyUnits
             set { _treat = value; }
         }
 
-         public int Energy
+
+        public int MaxEnergy
         {
-            get { return _energy;}
-            set { _energy = value; }
+            get;
+           private set;
+        }
+
+        public int Energy
+        {
+            get
+            {
+                return _energy;
+            }
+            set
+            {
+                if (value < 0)
+                {
+                  _energy = 0;
+                }
+                else
+                {
+                    if (value > _maxEnergy)
+                    {
+                        _energy = _maxEnergy;
+                    }
+                    else _energy = value;
+                }
+            }
         }
 
         public void CauseTreat(unit unit)
@@ -40,6 +67,9 @@ namespace StrategyUnits
 
         }
 
-
+        public override void ShowInfo()
+        {
+            Console.WriteLine($"unit: {Name} Health: {Health} MaxHealth: {MaxHealth} MaxDamage: {MaxDamage} MinDamage {MinDamage} Defense: {Defense} Energy {Energy}");
+        }
     }
 }

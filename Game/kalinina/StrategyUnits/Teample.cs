@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -11,15 +12,23 @@ namespace StrategyUnits
     internal class Teample
     {
 
-        private string? _nameTeample;
-        public Teample(string nameTeample)
+      
+        public int energy { get; set; }
+        public Teample( int ElementaryEnargy)
         {
-            _nameTeample = nameTeample;
+            energy = ElementaryEnargy;
         }
 
-        public void Addenergy(Healer healer)
+        
+
+        public void Addenergy(MagicUnit magicUnit)
         {
-            
+            if (MagicUnit.energy > 0)
+            {
+                int energyCount=Math.Min(magicUnit.MaxEnergy - magicUnit.Energy, energy);
+                magicUnit.Energy += energyCount * 10;
+                energy -= energyCount;
+            }
         }
 
 

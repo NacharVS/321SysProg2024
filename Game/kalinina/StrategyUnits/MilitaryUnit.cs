@@ -11,8 +11,9 @@ namespace StrategyUnits
     {
         private int _minDamage;
         private int _maxDamage;
+        Random random = new Random();
 
-        public MilitaryUnit(int health, string? name, int min, int max) : base(health, name)
+        public MilitaryUnit(int health, string? name, int min, int max, int defense) : base(health, name, defense)
         {
             _minDamage = min;
             _maxDamage = max;
@@ -30,16 +31,16 @@ namespace StrategyUnits
             get { return _minDamage; }
             set { _minDamage = value; }
         }
-
-        public virtual void Attach()
+        public void InfictDamage (unit unit)
         {
-            Random rnd = new Random();
-           int value= rnd.Next(value>MinDamage | value<MaxDamage);
-            Console.WriteLine(value);
-            
+            int countdamage = random.Next(MinDamage, MaxDamage);
+            countdamage -= unit.Defense;
+            unit.Health = Math.Max(0, countdamage);
         }
 
-
-
+        public override void ShowInfo()
+        {
+            Console.WriteLine($"unit: {Name} Health: {Health} MaxHealth: {MaxHealth} MaxDamage: {MaxDamage} MinDamage {MinDamage} Defense: {Defense}");
+        }
     }
 }

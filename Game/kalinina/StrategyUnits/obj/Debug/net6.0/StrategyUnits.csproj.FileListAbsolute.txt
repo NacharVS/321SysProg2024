@@ -21,3 +21,10 @@ C:\Users\212108\Desktop\Game\kalinina\StrategyUnits\obj\Debug\net6.0\StrategyUni
 C:\Users\212108\Desktop\Game\kalinina\StrategyUnits\obj\Debug\net6.0\StrategyUnits.dll
 C:\Users\212108\Desktop\Game\kalinina\StrategyUnits\obj\Debug\net6.0\refint\StrategyUnits.dll
 C:\Users\212108\Desktop\Game\kalinina\StrategyUnits\obj\Debug\net6.0\StrategyUnits.pdb
+C:\Users\212108\Desktop\Game\kalinina\StrategyUnits\bin\Debug\net6.0\StrategyUnits.exe
+C:\Users\212108\Desktop\Game\kalinina\StrategyUnits\bin\Debug\net6.0\StrategyUnits.deps.json
+C:\Users\212108\Desktop\Game\kalinina\StrategyUnits\bin\Debug\net6.0\StrategyUnits.runtimeconfig.json
+C:\Users\212108\Desktop\Game\kalinina\StrategyUnits\bin\Debug\net6.0\StrategyUnits.dll
+C:\Users\212108\Desktop\Game\kalinina\StrategyUnits\bin\Debug\net6.0\StrategyUnits.pdb
+C:\Users\212108\Desktop\Game\kalinina\StrategyUnits\obj\Debug\net6.0\StrategyUnits.genruntimeconfig.cache
+C:\Users\212108\Desktop\Game\kalinina\StrategyUnits\obj\Debug\net6.0\ref\StrategyUnits.dll
