@@ -3,7 +3,7 @@
     public delegate void HealthChangedDelegate(int health);
     internal class Unit
     {
-        private int _health;
+        private int _currentHealth;
         private string? _name;
         public int MaxHealth { get; private set; }
         public int Armor { get; set; }
@@ -11,7 +11,7 @@
 
         public Unit(int health, string? name, int armor)
         {
-            _health = health;
+            _currentHealth = health;
             _name = name;
             MaxHealth = health;
             Armor = armor;
@@ -50,7 +50,7 @@
 
         public virtual void ShowInfo()
         {
-            Console.WriteLine($"Unit: {_name} Health: {_health}");
+            Console.WriteLine($"Unit: {_name} Health: {_currentHealth}");
         }
 
         public event HealthChangedDelegate HealthChangedEvent;
