@@ -1,14 +1,23 @@
 ﻿using StrategyUnits;
+using System;
 
-Footman footman = new Footman();
-Footman footman2 = new Footman();
+Obama obama = new Obama();
+Footman footman = obama.CreateFootman();
+Footman footman1 = obama.CreateBerserk();
 Peasant ps1 = new Peasant();
 Healer healer1 = new Healer();
 Altar altar1 = new Altar();
 
+footman1.ActivateRageEvent += Rage;
+
+static void Rage(int health)
+{
+}
 
 ps1.ShowInfo();
-footman2.ShowInfo();
+footman1.ShowInfo();
+footman1.TakeDamage(footman);
+footman1.ShowInfo();
 ps1.TakeDamage(footman);
 ps1.TakeDamage(footman);
 ps1.ShowInfo();

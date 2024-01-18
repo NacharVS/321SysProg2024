@@ -3,8 +3,8 @@
     internal class MilliUnit : Unit
     {
         private int _damage;
-        private int _minDamage = 0;
-        private int _maxDamage = 10;
+        private int _minDamage = 31;
+        private int _maxDamage = 31;
         Random _random = new Random();
 
         public MilliUnit(int health, string? name, int stamina, int defense) : base(health, name, stamina, defense)
@@ -21,7 +21,7 @@
         public override void ShowInfo()
         {
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine($"This millitary unit {Name}.");
+            Console.WriteLine($"This millitary unit {Name}. {Damage}");
             Console.ResetColor();
         }
         private int SetRandomDamage()

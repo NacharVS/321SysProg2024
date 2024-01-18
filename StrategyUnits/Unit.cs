@@ -27,7 +27,7 @@
             set { _name = value; }
         }
 
-        public int Health
+        public virtual int Health
         {
             get
             {
@@ -47,7 +47,8 @@
                     _currentHealth = _health;
                 else
                     _currentHealth = value;
-
+                if (value < _health / 2)
+                    ActivateRageEvent?.Invoke(_currentHealth);
             }
         }
         public int Stamina
@@ -87,7 +88,7 @@
         {
             return _health;
         }
-        public void TakeDamage(MilliUnit attackingUnit)
+        public virtual void TakeDamage(MilliUnit attackingUnit)
         {
             if (attackingUnit.Damage >= Defense)
             {
@@ -95,12 +96,12 @@
                 Defense = 0;
                 Health -= attackingUnit.Damage;
                 HealthDecreasedEvent += DecMethod;
-                Console.WriteLine($"{Name}`s amrmor down. He get {attackingUnit.Damage} damage. His helath: {Health}.\nAttached: {attackingUnit.Name}.");
+                Console.WriteLine($"{Name}`s armom down. He get {attackingUnit.Damage} damage. His helath: {Health}.\nAttached: {attackingUnit.Name}.");
             }
             else
             {
                 Defense -= attackingUnit.Damage;
-                Console.WriteLine($"{Name} amrom survived. Now unit has: {Defense} armor.\nAttached: {attackingUnit.Name}.");
+                Console.WriteLine($"{Name} armom survived. Now unit has: {Defense} armor.\nAttached: {attackingUnit.Name}.");
             }
         }
         public void TakeHeal(MagicUnit healingUnit)
@@ -133,5 +134,6 @@
         }
         public event HealthChangedDelegate HealthIncreasedEvent;
         public event HealthChangedDelegate HealthDecreasedEvent;
+        public event HealthChangedDelegate ActivateRageEvent;
     }
 }
