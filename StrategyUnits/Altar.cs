@@ -9,13 +9,14 @@ namespace StrategyUnits
     internal class Altar : Unit
     {
         private int mannaHealing = 5;
-        public Altar() : base(100, "Altar")
+        public Altar() : base("Altar", 50, 25)
         {
         }
 
-        public void MannaHealing(Healer healer) {
-            healer.Manna += mannaHealing;
-            Console.WriteLine($"Unit {healer.Name} + {mannaHealing} manna. Total {healer.Manna}/{healer.MaxManna}");
+        public void MannaHealing(MagicUnit magicUnit)
+        {
+            magicUnit.MUManna += mannaHealing;
+            Console.WriteLine($"Unit {magicUnit.Name} + {mannaHealing} manna. Total {magicUnit.MUManna}/{magicUnit.MUMaxManna}");
         }
     }
 }

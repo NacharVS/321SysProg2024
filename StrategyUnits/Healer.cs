@@ -6,17 +6,13 @@ using System.Threading.Tasks;
 
 namespace StrategyUnits
 {
-    internal class Healer : Unit
+    internal class Healer : MagicUnit
     {
         private int _healing;
-        private int _manna;
-        private int _MaxManna;
 
-        public Healer(): base(40, "Healer")
+        public Healer() : base("Healer", 40, 3, 1, 3, 60)
         {
             _healing = 1;
-            _manna = 60;
-            MaxManna = _manna;
         }
 
         public int Healing
@@ -24,38 +20,23 @@ namespace StrategyUnits
             get { return _healing; }
             set { _healing = value; }
         }
-        public int MaxManna
-        {
-            get { return _MaxManna; }
-            private set { _MaxManna = value;}
-        }
-
-        public int Manna
-        {
-            get { return _manna; }
-            set {
-                if (value < 0) _manna = 0;
-                if (value > MaxManna) _manna = MaxManna;
-                else _manna = value;
-            }
-        }
 
         public void UnitHealing(Unit unit)
         {
-            while (unit.Health <= unit.MaxHealth && _manna >= 2)
+            while (unit.Health <= unit.MaxHealth && this.MUManna >= 2)
             {
-                
+
                 unit.Health += _healing;
-                
+
                 if (unit.Health > unit.MaxHealth)
                 {
                     unit.Health = unit.MaxHealth;
                     break;
                 }
-               _manna -= 2;
-                Console.WriteLine($"Unit {unit.Name} health: {unit.Health}/{unit.MaxHealth}. Healder manna {this.Manna}/{MaxManna}");
+                this.MUManna -= 2;
+                Console.WriteLine($"Unit {unit.Name} health: {unit.Health}/{unit.MaxHealth}. Healder manna: {this.MUManna}/{this.MUMaxManna}");
             }
-                
+
         }
 
     }
