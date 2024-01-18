@@ -4,7 +4,7 @@
     {
         private int _currentHealth;
         private string? _name;
-        public int MaxHealth { get; private set; }
+        public int MaxHealth { get; set; }
 
         public Unit(int health, string? name)
         {
@@ -25,9 +25,7 @@
             set
             {
                 if(value < 0)
-                {
                     _currentHealth = 0;
-                }
                 else
                     _currentHealth = value;
             }
