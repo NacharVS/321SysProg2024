@@ -2,7 +2,7 @@
 {
     internal class Footman : MilliUnit
     {
-        public Footman() : base(60, "Bober", 40, 5)
+        public Footman() : base(60, "Footman", 40, 5)
         {
         }
     }

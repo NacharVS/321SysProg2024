@@ -100,7 +100,7 @@
             else
             {
                 Defense -= attackingUnit.Damage;
-                Console.WriteLine($"{Name} amrom survived. Now unit have: {Defense} armor.\nAttached: {attackingUnit.Name}.");
+                Console.WriteLine($"{Name} amrom survived. Now unit has: {Defense} armor.\nAttached: {attackingUnit.Name}.");
             }
         }
         public void TakeHeal(MagicUnit healingUnit)
@@ -119,6 +119,19 @@
                 Console.WriteLine($"{healingUnit.Name} healed {Name} on {healingUnit.Heal} HP.");
             }
         }
-
+        void IncMethod(int health)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"Health UP");
+            Console.ResetColor();
+        }
+        void DecMethod(int health)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"Health Down");
+            Console.ResetColor();
+        }
+        public event HealthChangedDelegate HealthIncreasedEvent;
+        public event HealthChangedDelegate HealthDecreasedEvent;
     }
 }

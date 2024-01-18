@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace StrategyUnits
+﻿namespace StrategyUnits
 {
     internal class MilliUnit : Unit
     {
@@ -15,38 +9,24 @@ namespace StrategyUnits
 
         public MilliUnit(int health, string? name, int stamina, int defense) : base(health, name, stamina, defense)
         {
-            _damage = Damage;
+            _damage = SetRandomDamage();
         }
 
         public int Damage
         {
-            get { return _random.Next(_minDamage, _maxDamage); }
+            get { return _damage; }
             set { _damage = value; }
         }
+
         public override void ShowInfo()
         {
-            Console.WriteLine($"This millitary unit {Name}");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine($"This millitary unit {Name}.");
+            Console.ResetColor();
         }
-        public void InflictDamage(Unit unit)
+        private int SetRandomDamage()
         {
-            if (_damage >= unit.Defense)
-            {
-                unit.Health += unit.Defense;
-                unit.Health -= _damage;
-                unit.Defense -= _damage;
-                ShowInfo();
-                Console.WriteLine($"Unit {unit.Name} get damage {_damage}. His health: {unit.Health}. His armor: {unit.Defense}");
-            }
-            else
-            {
-                unit.Defense -= _damage;
-                Console.WriteLine($"Unit {unit.Name} get damage {Damage}. His health: {unit.Health}. His armor: {unit.Defense}");
-            }
-            unit.HealthDecreasedEvent += DecMethod;
-        }
-        void DecMethod(int health)
-        {
-            Console.WriteLine($"Health Down");
+            return _random.Next(_minDamage, _maxDamage);
         }
     }
 }
