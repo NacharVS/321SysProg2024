@@ -49,7 +49,6 @@
                     _currentHealth = value;
 
             }
-
         }
         public int Stamina
         {
@@ -82,15 +81,44 @@
 
         public virtual void ShowInfo()
         {
-            Console.WriteLine($"Unit: {_name} Health: {_currentHealth}/{_health}  Stamina: {_currentStamina} ");
+            Console.WriteLine($"Unit: {_name} Health: {_currentHealth} Stamina: {_currentStamina}");
         }
-
         public int GetMaxHP()
         {
             return _health;
         }
+        public void TakeDamage(MilliUnit attackingUnit)
+        {
+            if (attackingUnit.Damage >= Defense)
+            {
+                attackingUnit.Damage -= Defense;
+                Defense = 0;
+                Health -= attackingUnit.Damage;
+                HealthDecreasedEvent += DecMethod;
+                Console.WriteLine($"{Name}`s amrmor down. He get {attackingUnit.Damage} damage. His helath: {Health}.\nAttached: {attackingUnit.Name}.");
+            }
+            else
+            {
+                Defense -= attackingUnit.Damage;
+                Console.WriteLine($"{Name} amrom survived. Now unit have: {Defense} armor.\nAttached: {attackingUnit.Name}.");
+            }
+        }
+        public void TakeHeal(MagicUnit healingUnit)
+        {
+            HealthIncreasedEvent += IncMethod;
+            for (int i = Stamina; i > 0; i -= 2)
+            {
+                Health += healingUnit.Heal;
+                Stamina = i;
+                if (Health >= _health)
+                {
+                    Stamina -= 2;
+                    Console.WriteLine($"{healingUnit.Name} healed {Name} on {healingUnit.Heal} HP.");
+                    break;
+                }
+                Console.WriteLine($"{healingUnit.Name} healed {Name} on {healingUnit.Heal} HP.");
+            }
+        }
 
-        public event HealthChangedDelegate HealthIncreasedEvent;
-        public event HealthChangedDelegate HealthDecreasedEvent;
     }
 }
