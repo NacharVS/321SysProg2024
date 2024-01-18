@@ -1,6 +1,7 @@
-﻿namespace StrategyUnits
+﻿using static StrategyUnits.Berserk;
+
+namespace StrategyUnits
 { 
-    public delegate void HealthChangedDelegate(int health);
     internal class Unit
     {
         private int _currentHealth;
@@ -28,14 +29,11 @@
             get => _currentHealth; 
             set
             {
-                //HealthChangedEvent?.Invoke(_currentHealth);
-                if (value > _currentHealth) HealthIncreasedEvent?.Invoke(value);
-                else if (value < _currentHealth) HealthDecreasedEvent?.Invoke(value);
-                if(value < 0) _currentHealth = 0;
+                //if (value > _currentHealth) HealthIncreasedEvent?.Invoke(value);
+                //else if (value < _currentHealth) HealthDecreasedEvent?.Invoke(value);
+                if (value < 0) _currentHealth = 0;
                 else if (value > MaxHealth)  _currentHealth = MaxHealth;
-                else _currentHealth = value;
-               
-               
+                else _currentHealth = value;      
             }
         }
         public void Move()
@@ -43,7 +41,7 @@
             Console.WriteLine("Is moving");
         }
 
-        public void TakeDamage(int damage)
+        public virtual void TakeDamage(int damage, Unit? unit)
         { 
             _currentHealth -= damage;
         }
@@ -53,8 +51,8 @@
             Console.WriteLine($"Unit: {_name} Health: {_currentHealth}");
         }
 
-        public event HealthChangedDelegate HealthChangedEvent;
-        public event HealthChangedDelegate HealthIncreasedEvent;
-        public event HealthChangedDelegate HealthDecreasedEvent;
+        //public event HealthChangedDelegate HealthIncreasedEvent;
+        //public event HealthChangedDelegate HealthDecreasedEvent;
+
     }
 }

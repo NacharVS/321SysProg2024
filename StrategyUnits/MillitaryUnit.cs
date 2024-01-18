@@ -37,9 +37,8 @@ namespace StrategyUnits
             else
             {
                 Console.WriteLine($"{unit.Name} получил {damage + unit.Armor} урона. (Поглощено: {unit.Armor})");
-                unit.Health -= damage;
+                unit.TakeDamage(damage, unit);
             }
-            //unit.TakeDamage(damage);
         }
 
         public override void ShowInfo()
