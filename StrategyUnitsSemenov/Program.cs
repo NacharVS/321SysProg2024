@@ -1,47 +1,43 @@
-﻿using StrategyUnitsSemenov;
+﻿using StrategyUnits;
+using StrategyUnitsSemenov;
 using System;
 
 class Program
 {
     static void Main()
     {
+        // Создаем экземпляры персонажей
         Footman footman1 = new Footman();
-        Footman footman2 = new Footman();
-        Peasant peasant = new Peasant();
-        Bishop bishop = new Bishop();
-        Altar altar = new Altar();
         Archer archer = new Archer();
         Berserker berserker = new Berserker();
+        Paladin paladin = new Paladin();
+        Bishop bishop = new Bishop(); 
+        Peasant peasant = new Peasant();
 
-        // Пехотинцы атакуют крестьянина
+        // Персонажи атакуют и лечат друг друга
+        Console.WriteLine("Initial State:");
+        ShowCharactersInfo(footman1, archer, berserker, paladin, bishop, peasant);
+
+        Console.WriteLine("\nActions:");
+
+        // Персонажи атакуют
         footman1.InflictDamage(peasant);
-        footman2.InflictDamage(peasant);
-
-        // Крестьянин отображает информацию
-        peasant.ShowInfo();
-
-        // Епископ лечит крестьянина
-        bishop.Heal(peasant);
-
-        // Отображаем информацию об епископе и крестьянине после лечения
-        bishop.ShowInfo();
-        peasant.ShowInfo();
-
-        // Стрелок стреляет в епископа
-        archer.Shoot(bishop);
-
-        // Берсерк атакует стрелка
+        archer.Shoot(berserker);
         berserker.Attack(archer);
 
-        // Отображаем информацию об архере и берсерке после атак
-        archer.ShowInfo();
-        berserker.ShowInfo();
+        // Персонажи лечат
+        paladin.Heal(bishop);
+        bishop.Heal(berserker); 
 
-        // Восстановление выносливости для епископа
-        Bishop[] bishops = { bishop };
-        altar.RecoveryStamina(bishops);
+        Console.WriteLine("\nUpdated State:");
+        ShowCharactersInfo(footman1, archer, berserker, paladin, bishop, peasant);
+    }
 
-        // Отображаем информацию об епископе после восстановления выносливости
-        bishop.ShowInfo();
+    static void ShowCharactersInfo(params Unit[] units)
+    {
+        foreach (var unit in units)
+        {
+            unit.ShowInfo();
+        }
     }
 }

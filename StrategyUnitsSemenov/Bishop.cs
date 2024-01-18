@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StrategyUnitsSemenov
 {
-    internal class Bishop : Unit
+    internal class Bishop : Unit, IMagic
     {
+        private int _heal; // Сколько вылечит союзникам Health
+        private int _stamina; // Выносливость Bishop
+        private int _maxStamina; // Максимальная выносливость Bishop
 
-        private int _heal; //сколько вылечит союзникам Health
-        private int _stamina; //выносливость Bishop
-        private int _maxStamina; //максимальная выносливость Bishop
         public Bishop() : base(20, "Doctor")
         {
             _heal = 2;
@@ -30,15 +26,24 @@ namespace StrategyUnitsSemenov
             get { return _maxStamina; }
         }
 
+        // Свойство из интерфейса IMagic
+        public int HealAmount
+        {
+            get { return _heal; }
+            set { _heal = value; }
+        }
+
         public override void ShowInfo()
         {
             Console.WriteLine($"Unit: {Name} Health: {Health}/{MaxHealth}   Stamina: {Stamina}/{MaxStamina}");
         }
+
+        // Логика метода Heal с использованием свойства HealAmount
         public void Heal(Unit unit)
         {
             if (unit.Health > unit.MaxHealth)
             {
-                Console.WriteLine("Stamina > MaxStamina, value setted to MaxHealth, Bishop.cs");
+                Console.WriteLine("Stamina > MaxStamina, value set to MaxHealth, Bishop.cs");
                 unit.Health = unit.MaxHealth;
             }
             else
@@ -49,14 +54,17 @@ namespace StrategyUnitsSemenov
                     {
                         _stamina = _stamina - _heal;
                         unit.Health = _heal + unit.Health;
+                        Console.WriteLine($"Bishop healed {unit.Name} by {_heal} health.");
                     }
                     else
                     {
                         _stamina -= unit.MaxHealth - unit.Health;
                         unit.Health = unit.MaxHealth;
+                        Console.WriteLine($"Bishop healed {unit.Name} to full health.");
                     }
                 }
             }
         }
+
     }
 }

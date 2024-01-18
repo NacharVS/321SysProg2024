@@ -1,41 +1,28 @@
 ﻿using StrategyUnitsSemenov;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StrategyUnitsSemenov
 {
-    internal class Berserker : Unit
+    internal class Berserker : Unit, IMilitary
     {
-        private int _minDamage;
-        private int _maxDamage;
+        public int Damage { get; set; }
 
         public Berserker() : base(70, "Berserker")
         {
-            _minDamage = 10;
-            _maxDamage = 20;
+            Damage = 15;
         }
 
-        public int MinDamage
+        public void Attack(IMilitary target)
         {
-            get { return _minDamage; }
-            set { _minDamage = value; }
-        }
-
-        public int MaxDamage
-        {
-            get { return _maxDamage; }
-            set { _maxDamage = value; }
-        }
-
-        public void Attack(Unit unit)
-        {
-            int damage = new Random().Next(_minDamage, _maxDamage + 1);
-            unit.Health -= damage;
-
-            Console.WriteLine($"Berserker attacked {unit.Name} for {damage} damage.");
+            if (target != null)
+            {
+                Console.WriteLine($"Berserker attacked {target.GetType().Name} and dealt {Damage} damage.");
+                target.Damage = Damage;
+            }
+            else
+            {
+                Console.WriteLine("Invalid target. No damage dealt.");
+            }
         }
     }
 }

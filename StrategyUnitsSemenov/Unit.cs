@@ -1,4 +1,6 @@
-﻿namespace StrategyUnitsSemenov
+﻿using static System.Net.Mime.MediaTypeNames;
+
+namespace StrategyUnitsSemenov
 {
     internal class Unit
     {

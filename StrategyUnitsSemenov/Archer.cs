@@ -1,41 +1,36 @@
 ﻿using StrategyUnitsSemenov;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StrategyUnitsSemenov
 {
-    internal class Archer : Unit
+    internal class Archer : Unit, IMilitary
     {
-        private int _minDamage;
-        private int _maxDamage;
+        public int Damage { get; set; }
 
-        public Archer() : base(40, "Archer")
+        public Archer() : base(50, "Archer")
         {
-            _minDamage = 5;
-            _maxDamage = 10;
-        }
-
-        public int MinDamage
-        {
-            get { return _minDamage; }
-            set { _minDamage = value; }
-        }
-
-        public int MaxDamage
-        {
-            get { return _maxDamage; }
-            set { _maxDamage = value; }
+            Damage = 10;
         }
 
         public void Shoot(Unit unit)
         {
-            int damage = new Random().Next(_minDamage, _maxDamage + 1);
-            unit.Health -= damage;
-
-            Console.WriteLine($"Archer shot {unit.Name} for {damage} damage.");
+            if (unit.Health > 0)
+            {
+                if (unit.Health <= Damage)
+                {
+                    Console.WriteLine($"Archer shot {unit.Name} and dealt {unit.Health} damage. {unit.Name} has been defeated.");
+                    unit.Health = 0;
+                }
+                else
+                {
+                    Console.WriteLine($"Archer shot {unit.Name} and dealt {Damage} damage.");
+                    unit.Health -= Damage;
+                }
+            }
+            else
+            {
+                Console.WriteLine($"{unit.Name} is already defeated. No damage dealt.");
+            }
         }
     }
 }
