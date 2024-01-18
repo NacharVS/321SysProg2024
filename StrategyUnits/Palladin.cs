@@ -9,7 +9,7 @@ namespace StrategyUnits
 {
     internal class Palladin : magicUnit
     {
-        public Palladin() : base(100, "Palladin", 5,  10, 5, 10)
+        public Palladin(int health, string? name, int defence, int mana, int min_damage, int max_damage) : base(health, name, defence, mana, min_damage, max_damage)
         {
         }
         public override void ShowInfo()
