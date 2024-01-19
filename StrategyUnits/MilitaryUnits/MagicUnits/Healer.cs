@@ -21,11 +21,6 @@ namespace StrategyUnits.MilitaryUnits.MagicUnits
 
         }
 
-        public override void ShowInfo()
-        {
-            Console.WriteLine($"Юнит: {Name} | Здоровье: {Health}/{MaxHealth} | Броня: {Defense} | Мана: {Mana}/{MaxMana}");
-        }
-
         public void InflictHeal(Unit healedUnit)
         {
             if (healedUnit.Health <= 0)
@@ -42,7 +37,7 @@ namespace StrategyUnits.MilitaryUnits.MagicUnits
                     return;
                 }
                 Mana -= 2;
-                Console.WriteLine($"{Name} хилит {healedUnit.Name.ToLower()}а по 1 хп и тратит 2 маны (осталось {Mana}/{MaxMana})");
+                Console.WriteLine($"{Name} хилит {healedUnit.Name.ToLower()} по 1 хп и тратит 2 маны (осталось {Mana}/{MaxMana})");
                 healedUnit.Health++;
             }
 

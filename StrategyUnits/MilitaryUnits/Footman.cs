@@ -8,10 +8,5 @@ namespace StrategyUnits.MilitaryUnits
         {
 
         }
-
-        public override void ShowInfo()
-        {
-            Console.WriteLine($"Юнит: {Name} | Здоровье: {Health}/{MaxHealth} | Броня: {Defense}");
-        }
     }
 }

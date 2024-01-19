@@ -19,7 +19,7 @@ namespace StrategyUnits.MilitaryUnits
             get
             {
                 _damage = random.Next(_minDamage, _maxDamage);
-                MilitaryUnitHitEvent.Invoke(Name, _damage); 
+                MilitaryUnitHitEvent.Invoke(Name, _damage);
                 return _damage;
             }
             private set { }
@@ -34,10 +34,10 @@ namespace StrategyUnits.MilitaryUnits
             _minDamage = minDamage;
             _maxDamage = maxDamage;
         }
+        public override void ShowInfo()
+           => Console.WriteLine($"Юнит: {Name} | Здоровье: {Health}/{MaxHealth} | Броня: {Defense}\n");
 
         public virtual void InflictDamage(Unit unit)
-        {
-            unit.Health -= Damage;
-        }
+            => unit.Health -= (Damage - unit.Defense);
     }
 }

@@ -32,5 +32,10 @@ namespace StrategyUnits.MilitaryUnits.MagicUnits
             MaxMana = mana;
             Name = name;
         }
+
+        public override void ShowInfo()
+        {
+            Console.WriteLine($"Юнит: {Name} | Здоровье: {Health}/{MaxHealth} | Броня: {Defense} | Мана: {Mana}/{MaxMana}\n");
+        }
     }
 }

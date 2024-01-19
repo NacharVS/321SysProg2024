@@ -23,7 +23,11 @@ namespace StrategyUnits.MilitaryUnits
                 _damage = random.Next(_minDamage, _maxDamage);
                 if (Health < MaxHealth * 0.5)
                 {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("*Рейдж мод активатион, тебя убиватион*");
                     MilitaryUnitRageHitEvent.Invoke(Name, _damage * 2);
+                    Console.ResetColor();
+
                     return _damage * 2;
                 }
                 else

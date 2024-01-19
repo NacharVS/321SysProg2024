@@ -19,6 +19,7 @@ Healer healer = barrack.RecruitBossHealer();
 //enemyFootman.MilitaryUnitHitEvent += FootmanAttack;
 enemyFootman.HealthIncreasedEvent += HPIncreased;
 enemyFootman.HealthDecreasedEvent += HPDecreased;
+enemyFootman.HealthNoChangeEvent += HPNoChange;
 enemyFootman.MilitaryUnitHitEvent += Attack;
 allyBerserk.MilitaryUnitRageHitEvent += Attack;
 
@@ -26,15 +27,17 @@ allyBerserk.MilitaryUnitRageHitEvent += Attack;
 //allyBerserk.MilitaryUnitHitEvent += Absorb;
 allyBerserk.HealthIncreasedEvent += HPIncreased;
 allyBerserk.HealthDecreasedEvent += HPDecreased;
+allyBerserk.HealthNoChangeEvent += HPNoChange;
 
+enemyFootman.InflictDamage(allyBerserk);
+enemyFootman.InflictDamage(allyBerserk);
 enemyFootman.InflictDamage(allyBerserk);
 
 allyBerserk.InflictDamage(enemyFootman);
 
-allyBerserk.ShowInfo();
-enemyFootman.ShowInfo();
+healer.InflictHeal(allyBerserk);
 
-healer.InflictHeal(enemyFootman);
+allyBerserk.InflictDamage(enemyFootman);
 
 #region
 //enemyFootman.MilitaryUnitHitEvent += FootmanAttack;
@@ -74,16 +77,27 @@ static void ArcherAttack(string attackerName, string defenderName, int damage, i
     Console.WriteLine($"Броня {defenderName.ToLower()} сдержала {defense} урона, но была пробита, прошло {damage - defense} урон(а)");
 }
 
-static void HPIncreased(string name, int number)
+static void HPIncreased(string name, int health, int maxHealth)
 {
-    Console.WriteLine($"ХП увеличено. Теперь у {name.ToLower()} - {number} хп\n");
+    Console.ForegroundColor = ConsoleColor.DarkGreen;
+    Console.WriteLine($"Теперь у {name.ToLower()} - {health}/{maxHealth}\n");
+    Console.ResetColor();
 }
-static void HPDecreased(string name, int number)
+static void HPDecreased(string name, int health, int maxHealth)
 {
-    Console.WriteLine($"ХП уменьшено. Теперь у {name.ToLower()} - {number} хп\n");
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine($"Теперь у {name.ToLower()} - {health}/{maxHealth}\n");
+    Console.ResetColor();
+}
+
+static void HPNoChange(string name, int health, int maxHealth)
+{
+    Console.ForegroundColor = ConsoleColor.DarkGray;
+    Console.WriteLine($"Здоровье не затронуто ({name} - {health}/{maxHealth})\n");
+    Console.ResetColor();
 }
 
 static void Attack(string name, int damage)
 {
-    Console.WriteLine($"Атаковал {name} с уроном {damage}");
+    Console.WriteLine($"{name} атаковал с уроном {damage}");
 }
