@@ -21,7 +21,7 @@ namespace StrategyUnits.Buildings
         }
         public Footman RecruitAdvancedFootman()
         {
-            return new Footman("Бывалый с мечом", 80, 6, 7, 11);
+            return new Footman("Бывалый с мечом", 80, 6, 11, 11);
         }
         public Footman RecruitBossFootman()
         {
@@ -29,7 +29,7 @@ namespace StrategyUnits.Buildings
         }
         public Berserk RecruitBerserk()
         {
-            return new Berserk("Бешеный челик с рейджем", 50, 3, 20, 20);
+            return new Berserk("Бешеный челик с рейджем", 50, 15, 20, 20);
         }
 
         public Archer RecruitRookieArcher()

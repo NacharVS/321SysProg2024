@@ -16,26 +16,26 @@ Healer healer = barrack.RecruitBossHealer();
 
 
 //поле действия
-enemyFootman.MilitaryUnitHitEvent += FootmanAttack;
-enemyFootman.MilitaryUnitNonHitEvent += Absorb;
-enemyFootman.HealthChangedEvent += HPChanged;
+//enemyFootman.MilitaryUnitHitEvent += FootmanAttack;
+enemyFootman.HealthIncreasedEvent += HPIncreased;
+enemyFootman.HealthDecreasedEvent += HPDecreased;
+enemyFootman.MilitaryUnitHitEvent += Attack;
+allyBerserk.MilitaryUnitRageHitEvent += Attack;
 
 //allyBerserk.RageEvent += FootmanAttack;
-allyBerserk.MilitaryUnitNonHitEvent += Absorb;
-allyBerserk.MilitaryUnitHitEvent += Absorb;
-allyBerserk.HealthChangedEvent += HPChanged;
+//allyBerserk.MilitaryUnitHitEvent += Absorb;
+allyBerserk.HealthIncreasedEvent += HPIncreased;
+allyBerserk.HealthDecreasedEvent += HPDecreased;
 
-//enemyFootman.InflictDamage(allyBerserk, enemyFootman);
-//enemyFootman.InflictDamage(allyBerserk, enemyFootman);
-//enemyFootman.InflictDamage(allyBerserk, enemyFootman);
-//enemyFootman.InflictDamage(allyBerserk, enemyFootman);
-//enemyFootman.InflictDamage(allyBerserk, enemyFootman);
-enemyFootman.InflictDamage(allyBerserk, enemyFootman);
-enemyFootman.InflictDamage(allyBerserk, enemyFootman);
+enemyFootman.InflictDamage(allyBerserk);
+
+allyBerserk.InflictDamage(enemyFootman);
 
 allyBerserk.ShowInfo();
+enemyFootman.ShowInfo();
 
-allyBerserk.InflictDamage(enemyFootman, allyBerserk);
+healer.InflictHeal(enemyFootman);
+
 #region
 //enemyFootman.MilitaryUnitHitEvent += FootmanAttack;
 //enemyFootman.MilitaryUnitNonHitEvent += Absorb;
@@ -74,13 +74,16 @@ static void ArcherAttack(string attackerName, string defenderName, int damage, i
     Console.WriteLine($"Броня {defenderName.ToLower()} сдержала {defense} урона, но была пробита, прошло {damage - defense} урон(а)");
 }
 
-static void Absorb(string attackerName, string defenderName, int damage, int defense)
+static void HPIncreased(string name, int number)
 {
-    Console.WriteLine($"{attackerName} не нанес урона");
-    Console.WriteLine($"Броня {defenderName.ToLower()} ({defense}) поглотила весь урон ({damage})\n");
+    Console.WriteLine($"ХП увеличено. Теперь у {name.ToLower()} - {number} хп\n");
+}
+static void HPDecreased(string name, int number)
+{
+    Console.WriteLine($"ХП уменьшено. Теперь у {name.ToLower()} - {number} хп\n");
 }
 
-static void HPChanged(string name, int number)
+static void Attack(string name, int damage)
 {
-    Console.WriteLine($"Теперь у {name.ToLower()} - {number} хп\n");
+    Console.WriteLine($"Атаковал {name} с уроном {damage}");
 }

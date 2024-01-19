@@ -3,19 +3,17 @@
     public delegate void HealthChangedDelegate(string name, int health);
     internal class Unit
     {
-        public event HealthChangedDelegate HealthChangedEvent;
+        public event HealthChangedDelegate HealthIncreasedEvent;
+        public event HealthChangedDelegate HealthDecreasedEvent;
 
         private int _health;
         private string? _name;
 
-
         public string Name
         {
-            get { return _name == null ? "" : _name; }
+            get { return _name == null ? "Неизвестный" : _name; }
             set { _name = value; }
         }
-        public int Defense { get; set; }
-        public int MaxHealth { get; private set; }
         public int Health
         {
             get => _health;
@@ -26,11 +24,20 @@
                 else if (value > MaxHealth)
                     _health = MaxHealth;
                 else
-                    _health = value;
+                {
+                    value += Defense;
 
-                HealthChangedEvent?.Invoke(Name, _health);
+                    if (value < _health)
+                        HealthDecreasedEvent?.Invoke(Name, value);
+                    else
+                        HealthIncreasedEvent?.Invoke(Name, value);
+
+                    _health = value;
+                }
             }
         }
+        public int Defense { get; private set; }
+        public int MaxHealth { get; private set; }
 
         public Unit(string? name, int health, int defense)
         {

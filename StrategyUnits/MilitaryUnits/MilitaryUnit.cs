@@ -6,39 +6,38 @@ using System.Threading.Tasks;
 
 namespace StrategyUnits.MilitaryUnits
 {
-    public delegate void MilitaryUnitChangedEventHandler(string attackerName,string defenderName, int damage, int defense);
+    public delegate void MilitaryUnitDamageDelegate(string name, int damage);
 
     internal class MilitaryUnit : Unit
     {
-        public event MilitaryUnitChangedEventHandler MilitaryUnitHitEvent;
-        public event MilitaryUnitChangedEventHandler MilitaryUnitNonHitEvent;
+        public event MilitaryUnitDamageDelegate MilitaryUnitHitEvent;
+        Random random = new Random();
 
         private int _damage;
+        public virtual int Damage
+        {
+            get
+            {
+                _damage = random.Next(_minDamage, _maxDamage);
+                MilitaryUnitHitEvent.Invoke(Name, _damage); 
+                return _damage;
+            }
+            private set { }
+        }
 
         private int _minDamage;
         private int _maxDamage;
 
-        public MilitaryUnit(string name, int health, int defense, int minDamage, int maxDamage) : base(name, health, defense)
+        public MilitaryUnit(string name, int health, int defense, int minDamage, int maxDamage)
+            : base(name, health, defense)
         {
             _minDamage = minDamage;
             _maxDamage = maxDamage;
         }
 
-        public virtual void InflictDamage(Unit defender, Unit attacker)
+        public virtual void InflictDamage(Unit unit)
         {
-            Random random = new Random();
-            _damage = random.Next(_minDamage, _maxDamage);
-
-            if (defender.Defense >= _damage)
-            {
-                MilitaryUnitNonHitEvent.Invoke(attacker.Name, defender.Name, _damage, defender.Defense);
-            }
-            else
-            {
-                MilitaryUnitHitEvent.Invoke(attacker.Name, defender.Name, _damage, defender.Defense);
-                
-                defender.Health = defender.Health + (defender.Defense - _damage);
-            }
+            unit.Health -= Damage;
         }
     }
 }
