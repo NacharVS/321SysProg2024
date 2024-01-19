@@ -22,9 +22,14 @@ namespace StrategyUnits
             return new Berserk(50, "Berserk", 2, 3, 10);
         }
 
+        public Knight CreateKnight()
+        {
+            return new Knight(50, "Knight", 3, 3, 7, 10);
+        }
+
         public Palladin CreatePalladin()
         {
-            return new Palladin(50, "Palladin", 5, 3, 7, 30);
+            return new Palladin(60, "Palladin", 5, 5, 9, 20);
         }
     }
 }

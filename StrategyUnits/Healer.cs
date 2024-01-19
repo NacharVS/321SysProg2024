@@ -10,7 +10,7 @@ namespace StrategyUnits
     {
         public Healer() : base(30, "Healer", 0, 1, 3, 30)
         {
-            _heal = 1;
+            _heal = 2;
         }
 
         private int _heal;
@@ -26,7 +26,7 @@ namespace StrategyUnits
             while (Mana != 0 && unit.Health < unit.MaxHealth)
             {
                 unit.Health += _heal;
-                Mana -= 2;
+                Mana -= 1;
             }
             Console.WriteLine($"Лекарь восстановил юниту {unit.Name} {unit.Health - HealthBefore} здоровья, затратив {(unit.Health - HealthBefore) * 2} маны");
         }
