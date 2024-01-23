@@ -18,7 +18,7 @@ namespace StrategyUnits.Buildings
         public Footman RecruitRookieFootman()
             => new Footman("Новичок с палкой", 60, 5, 4, 8);
         public Footman RecruitAdvancedFootman()
-            => new Footman("Бывалый с мечом", 80, 25, 17, 17);
+            => new Footman("Бывалый с мечом", 80, 25, 15, 15);
         public Footman RecruitBossFootman()
             => new Footman("Босс качалки со штангой", 100, 9, 8, 13);
 

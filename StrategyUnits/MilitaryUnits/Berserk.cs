@@ -9,7 +9,7 @@ namespace StrategyUnits.MilitaryUnits
     //public delegate void ActivateRageDeledate(int damage);
     internal class Berserk : Footman
     {
-        public event MilitaryUnitDamageDelegate MilitaryUnitRageHitEvent;
+        new public event MilitaryUnitDamageDelegate MilitaryUnitHitEvent;
 
         private int _damage;
         private int _minDamage;
@@ -25,14 +25,14 @@ namespace StrategyUnits.MilitaryUnits
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("*Рейдж мод активатион, тебя убиватион*");
-                    MilitaryUnitRageHitEvent?.Invoke(Name, _damage * 2);
+                    MilitaryUnitHitEvent?.Invoke(Name, _damage * 2);
                     Console.ResetColor();
 
                     return _damage * 2;
                 }
                 else
                 {
-                    MilitaryUnitRageHitEvent.Invoke(Name, _damage);
+                    MilitaryUnitHitEvent.Invoke(Name, _damage);
                     return _damage;
                 }
             }

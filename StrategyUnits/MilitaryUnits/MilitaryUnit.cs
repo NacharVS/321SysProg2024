@@ -39,9 +39,18 @@ namespace StrategyUnits.MilitaryUnits
 
         public virtual void InflictDamage(Unit unit)
         {
+            int damage;
             if (Health > 0)
             {
-                unit.Health -= (Damage - unit.Defense);
+                damage = Damage - unit.Defense;
+                if (damage >= 0)
+                {
+                    unit.Health -= damage;
+                }
+                else
+                {
+                    unit.Health = unit.Health;
+                }
             }
             else
             {

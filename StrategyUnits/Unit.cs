@@ -30,6 +30,11 @@
                     HealthNoChangeEvent?.Invoke(Name, MaxHealth, MaxHealth);
                     _health = MaxHealth;
                 }
+                else if (value == _health)
+                {
+                    // заглушка, чтобы выводило при нулевом уроне
+                    HealthNoChangeEvent?.Invoke(Name, MaxHealth, MaxHealth); 
+                }
                 else
                 {
                     if (value < _health)
