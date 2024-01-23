@@ -25,7 +25,9 @@ footman.ShowInfo();
 Maxon.ShowInfo();
 Maxon.InflictDamage(footman);
 Maxon.InflictDamage(footman);
+healer1.ShowInfo();
 healer1.InflictHeal(Maxon);
+healer1.ShowInfo();
 Maxon.ShowInfo();
 footman.InflictDamage(Maxon);
 Maxon.ShowInfo();
@@ -33,6 +35,23 @@ Maxon.InflictDamage(footman);
 Maxon.ShowInfo();
 Maxon.SelfHeal();
 Maxon.ShowInfo();
+
+//guts.InflictDamage(footman);
+//guts.InflictDamage(footman);
+//footman.InflictDamage(guts);
+//footman.InflictDamage(guts);
+//footman.InflictDamage(guts);
+//footman.ShowInfo();
+//guts.ShowInfo();
+//guts.InflictDamage(footman);
+//guts.InflictDamage(footman);
+//healer1.InflictHeal(guts);
+//guts.ShowInfo();
+//footman.InflictDamage(guts);
+//guts.ShowInfo();
+//guts.InflictDamage(footman);
+//guts.ShowInfo();
+//guts.ShowInfo();
 
 
 

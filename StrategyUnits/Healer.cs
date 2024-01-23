@@ -28,7 +28,7 @@ namespace StrategyUnits
                 unit.Health += _heal;
                 Mana -= 1;
             }
-            Console.WriteLine($"Лекарь восстановил юниту {unit.Name} {unit.Health - HealthBefore} здоровья, затратив {(unit.Health - HealthBefore) * 2} маны");
+            Console.WriteLine($"Лекарь восстановил юниту {unit.Name} {unit.Health - HealthBefore} здоровья, затратив {(unit.Health - HealthBefore) / 2} маны");
         }
     }
 }
