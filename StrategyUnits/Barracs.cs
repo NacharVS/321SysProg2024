@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StrategyUnits
 {
-    internal class Obama
+    internal class Barracs
     {
         public Footman CreateFootman()
         {
@@ -14,7 +14,7 @@ namespace StrategyUnits
         }
         public Berserk CreateBerserk()
         {
-            return new Berserk(60, "Gats", 80, 0);
+            return new Berserk(50, "Gats", 80, 0);
         }
     }
 }
