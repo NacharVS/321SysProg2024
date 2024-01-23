@@ -11,12 +11,12 @@ namespace StrategyUnits
         private int _heal;
         public Knight(int health, string? name, int defence, int mana, int min_damage, int max_damage) : base(health, name, defence, mana, min_damage, max_damage)
         {
-            _heal = 1;
+            _heal = 20;
         }
         public void SelfHeal()
         {
             Console.WriteLine("Лечимся!");
-            while (this.Health < this.MaxHealth && Mana > 0)
+            if (this.Health < this.MaxHealth && Mana > 0)
             {
                 if (this.Health + 1 >= this.MaxHealth)
                 {

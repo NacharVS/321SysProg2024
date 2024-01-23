@@ -11,8 +11,8 @@ Berserker bs = barracs.CreateBerserk();
 Palladin pl = barracs.CreatePalladin();
 
 ////done 
-bs.HealthIncreaseEvent += MethodHeal;
-bs.HealthDecreaseEvent += MethodUnHeal;
+//bs.HealthIncreaseEvent += MethodHeal;
+//bs.HealthDecreaseEvent += MethodUnHeal;
 //ps1.ShowInfo();
 //healer1.AddHeal(ps1);
 //healer1.ShowInfo();
@@ -32,8 +32,11 @@ bs.HealthDecreaseEvent += MethodUnHeal;
 //pl.Exorcizm(healer1);
 //healer1.ShowInfo();
 
+
 bs.InflictDamage(pl);
-pl.ScintRow(bs);
+pl.ScintRow(kn);
+kn.ShowInfo();
+kn.SelfHeal();
 bs.ShowInfo();
 healer1.AddHeal(bs);
 bs.InflictDamage(pl);
