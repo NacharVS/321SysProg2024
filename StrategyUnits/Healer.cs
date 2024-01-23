@@ -6,37 +6,12 @@ using System.Threading.Tasks;
 
 namespace StrategyUnits
 {
-    internal class Healer : Unit
+    internal class Healer : MagicUnit
     {
-        private int _healthValue;
-
-        public int Heal
+        public Healer(int health, string? name, int stamina, int defense) : base(health, name, stamina, defense)
         {
-            get { return _healthValue; }
-            set { _healthValue = value; }
+            Heal = 5;
+            Damage = 1;
         }
-
-        public Healer() : base(80, "Bykov", 60)
-        {
-            _healthValue = 1;
-        }
-
-        public void HealHP(Unit unit)
-        {
-            for (int i = Stamina; i > 0; i-=2)
-            {
-                unit.Health += _healthValue;
-                Console.WriteLine("+1 HP");
-                Stamina = i;
-                if (unit.Health == unit.GetMaxHP())
-                {
-                    Stamina -= 2;
-                    break;
-                }
-            }
-            
-            
-        }
-
     }
 }

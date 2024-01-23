@@ -7,9 +7,9 @@
         {
             _staminaAdd = 30;
         }
-        public void Recovery(Unit unit)
+        public void Recovery(MagicUnit magUnit)
         {
-            unit.Stamina += _staminaAdd;
+            magUnit.Stamina += _staminaAdd;
         }
     }
 }

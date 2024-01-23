@@ -1,24 +1,9 @@
 ﻿namespace StrategyUnits
 {
-    internal class Footman : Unit
+    internal class Footman : MilliUnit
     {
-        private int _damage;
-
-        public int Damage
+        public Footman(int health, string? name, int stamina, int defense) : base(health, name, stamina, defense)
         {
-            get { return _damage; }
-            set { _damage = value; }
         }
-
-        public Footman() : base(60, "Footman", 60)
-        {
-            _damage = 30;
-        }
-
-        public void InflictDamage(Unit unit)
-        {
-            unit.Health -= _damage;
-        }
-
     }
 }

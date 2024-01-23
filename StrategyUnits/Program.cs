@@ -1,22 +1,25 @@
 ﻿using StrategyUnits;
 
-Footman footman = new Footman();
-Footman footman2 = new Footman();
-Peasant ps1 = new Peasant();
-Healer healer1 = new Healer();
-Altar altar1 = new Altar();
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        Barracs barracs = new Barracs();
+        MagicPortal magicPortal = new MagicPortal();
+        Palladin knight = magicPortal.CreateMiddleKnight();
+        Footman berserk = barracs.CreateBerserk();
+        Healer healer = magicPortal.CreateMiddleHelaer();
 
-ps1.ShowInfo();
-footman2.ShowInfo();
-footman.InflictDamage(ps1);
-ps1.ShowInfo();
-healer1.HealHP(ps1);
-ps1.ShowInfo();
-healer1.ShowInfo();
-altar1.Recovery(healer1);
-altar1.Recovery(healer1);
-altar1.Recovery(healer1);
-healer1.ShowInfo();
+        knight.TakeDamage(berserk);
+        knight.TakeDamage(berserk);
+        knight.ShowInfo();
+        berserk.ShowInfo();
+        berserk.TakeDamage(knight);
+        berserk.ShowInfo();
+        berserk.TakeHeal(healer);
+        knight.SelfHeal();
+        knight.ShowInfo();
+        berserk.ShowInfo();
 
-
-
+    }
+}

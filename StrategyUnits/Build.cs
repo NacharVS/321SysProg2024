@@ -10,15 +10,15 @@
             _Health = health;
             _name = name;
         }
-        public int Health 
-        { 
-         get { return _Health;} 
-         set { _Health = value; }
+        public int Health
+        {
+            get { return _Health; }
+            set { _Health = value; }
         }
 
         public string Name
         {
-            get {return _name;} 
+            get { return _name; }
             set { _name = value; }
         }
         public void ShowInfo()
