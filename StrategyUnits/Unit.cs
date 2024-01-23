@@ -1,16 +1,20 @@
 ﻿namespace StrategyUnits
 {
-    internal class Unit
+    abstract class Unit
     {
         private int _currentHealth;
         private string? _name;
+        public int Defense {get; set;}
         public int MaxHealth { get; private set; }
+        public delegate void HealthChangedDelegate(Unit unit);
 
-        public Unit(int health, string? name)
+
+        public Unit(int health, string? name, int defense)
         {
             _currentHealth = health;
             _name = name;
             MaxHealth = health;
+            Defense = defense;
         }
 
         public string Name
@@ -24,13 +28,33 @@
             get => _currentHealth; 
             set
             {
-                if(value < 0)
+                Unit unit = this;
+                if(value > _currentHealth)
+                {
+                    _currentHealth = value;
+                    HealthIncreasedEvent?.Invoke(unit);
+                }
+                else if(value < _currentHealth)
+                {
+                    _currentHealth = value;
+                    HealthDecreasedEvent?.Invoke(unit);
+                }
+                if (value < 0)
                 {
                     _currentHealth = 0;
-                }
-                else
-                    _currentHealth = value;
+                } 
+                else if (value > MaxHealth)
+                {
+                    _currentHealth = MaxHealth;
+                } 
+                else _currentHealth = value;
+                    
             }
+        }
+
+        public virtual void TakeDamage(int damage, Unit unit)
+        {
+            Health -= damage;
         }
 
         public void Move()
@@ -42,5 +66,8 @@
         {
             Console.WriteLine($"Unit: {_name} Health: {_currentHealth}/{MaxHealth}");
         }
+
+        public event HealthChangedDelegate HealthIncreasedEvent;
+        public event HealthChangedDelegate HealthDecreasedEvent;
     }
 }

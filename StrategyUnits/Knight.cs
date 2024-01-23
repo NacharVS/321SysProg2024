@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StrategyUnits
 {
-    internal class Healer: MagicUnit
+    internal class Knight: MagicUnit
     {
         private int _heal;
 
@@ -16,9 +16,9 @@ namespace StrategyUnits
             set { _heal = value; }
         }
 
-        public Healer() : base(50, "Healer", 25,60, 0, 0)
+        public Knight(int health, string? name, int defense, int energy,int minDamage, int maxDamage): base(health, name, defense, energy,minDamage, maxDamage)
         {
-            _heal = 7;
+            _heal = 10;
         }
 
         public void AddHeal(Unit unit)
@@ -39,4 +39,4 @@ namespace StrategyUnits
             Energy -= missingHealth * 2;
         }
     }
- }
+}
