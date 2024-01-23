@@ -17,9 +17,7 @@ healer1.ShowInfo();
 ps1.ShowInfo();
 ft1.InflictDamage(ps1);
 
-//test
-ft1 = GetBers();
-ft1.ShowInfo();
+
 
  void GetBers()
 {
