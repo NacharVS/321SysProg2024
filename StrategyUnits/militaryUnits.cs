@@ -12,6 +12,7 @@ namespace StrategyUnits
         private int _minDamage;
         private int _maxDamage;
         private int _damage;
+        private int _firstDamage;
         public int minDamage
         {
             get { return _minDamage; }
@@ -30,11 +31,11 @@ namespace StrategyUnits
         public virtual void InflictDamage(Unit unit)
         {
             Random rnd = new Random();
-            _damage = rnd.Next(minDamage, maxDamage);
-            _damage -= unit.Defence;
+            _firstDamage = rnd.Next(minDamage, maxDamage);
+            _damage = _firstDamage - unit.Defence;
             unit.Health -= _damage;
             unit.TakeDamage(_damage);
-            Console.WriteLine($"Юнит: {this.Name} наносит удар своим болтом {_damage} единиц по {unit.Name} при броне {unit.Defence}");
+            Console.WriteLine($"Юнит: {this.Name} наносит удар своим болтом {_firstDamage} единиц по {unit.Name} при броне {unit.Defence}");
         }
     }
 }

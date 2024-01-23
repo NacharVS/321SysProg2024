@@ -23,12 +23,16 @@ namespace StrategyUnits
         
         public Berserker CreateBerserk()
         {
-            return new Berserker(100, "Berserker", 10, 10, 15);
+            return new Berserker(100, "Berserker", 1, 10, 15);
         }
         
         public Palladin CreatePalladin()
         {
             return new Palladin(100, "Palladin", 5, 10, 5, 10);
+        }
+        public Knight CreateKnight()
+        {
+            return new Knight(100, "Knight", 5, 10, 5, 10);
         }
     }
 }

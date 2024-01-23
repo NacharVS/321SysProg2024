@@ -7,14 +7,32 @@ using System.Threading.Tasks;
 
 namespace StrategyUnits
 {
-    internal class Palladin : magicUnit
+    internal class Palladin : Knight
     {
+        private int _comboFight;
         public Palladin(int health, string? name, int defence, int mana, int min_damage, int max_damage) : base(health, name, defence, mana, min_damage, max_damage)
         {
         }
+        public void ScintRow(Unit unit)
+        {
+            _comboFight = 0;
+            Console.WriteLine("Башка сломат режим вкл.");
+            while (_comboFight < 5)
+            {
+                InflictDamage(unit);
+                _comboFight++;
+            }
+            Console.WriteLine("Башка сломат режим выкл.");
+        }
+        public void Exorcizm(magicUnit magicUnit)
+        {
+            Console.WriteLine("Напитки из черноголовки");
+            magicUnit.Mana -= 2;
+            this.Mana += 2;
+        }
         public override void ShowInfo()
         {
-            Console.WriteLine($"Паладин{Health}/{MaxHealth}");
+            Console.WriteLine($"Паладин {Health}/{MaxHealth}");
         }
     }
 }

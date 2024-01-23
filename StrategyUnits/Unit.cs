@@ -40,6 +40,11 @@
                 if(value < 0)
                 {
                     _currentHealth = 0;
+                    Console.WriteLine($"{this.Name} умер!");
+                }
+                else if (value > MaxHealth)
+                {
+                    _currentHealth = MaxHealth;
                 }
                 else
                     _currentHealth = value;
