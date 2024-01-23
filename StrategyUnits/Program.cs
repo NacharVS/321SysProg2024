@@ -30,6 +30,7 @@ namespace StrategyUnits
             footman.Attack(footman2);
             footman.Attack(footman2);
             bishop.HealUnit(footman2);
+            //Получилось
             
 
         }
