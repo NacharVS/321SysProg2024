@@ -8,8 +8,9 @@ using StrategyUnits.PeacefulUnits;
 Altar altar = new Altar("Психушка");
 Barrack barrack = new Barrack("Обэмэ");
 
-Footman enemyFootman = barrack.RecruitAdvancedFootman();
+Footman enemyFootman2 = barrack.RecruitAdvancedFootman();
 Berserk allyBerserk = barrack.RecruitBerserk();
+Palladin allyPalladin = barrack.RecruitPalladin();
 Archer enemyArcher = barrack.RecruitBossArcher();
 Peasant peasant = new Peasant();
 Healer healer = barrack.RecruitBossHealer();
@@ -17,28 +18,40 @@ Healer healer = barrack.RecruitBossHealer();
 
 //поле действия
 //enemyFootman.MilitaryUnitHitEvent += FootmanAttack;
-enemyFootman.HealthIncreasedEvent += HPIncreased;
-enemyFootman.HealthDecreasedEvent += HPDecreased;
-enemyFootman.HealthNoChangeEvent += HPNoChange;
-enemyFootman.MilitaryUnitHitEvent += Attack;
-allyBerserk.MilitaryUnitRageHitEvent += Attack;
+enemyFootman2.HealthIncreasedEvent += HPIncreased;
+enemyFootman2.HealthDecreasedEvent += HPDecreased;
+enemyFootman2.HealthNoChangeEvent += HPNoChange;
+enemyFootman2.MilitaryUnitHitEvent += Attack;
+//allyBerserk.MilitaryUnitRageHitEvent += Attack;
 
 //allyBerserk.RageEvent += FootmanAttack;
-//allyBerserk.MilitaryUnitHitEvent += Absorb;
 allyBerserk.HealthIncreasedEvent += HPIncreased;
 allyBerserk.HealthDecreasedEvent += HPDecreased;
 allyBerserk.HealthNoChangeEvent += HPNoChange;
 
-enemyFootman.InflictDamage(allyBerserk);
-enemyFootman.InflictDamage(allyBerserk);
-enemyFootman.InflictDamage(allyBerserk);
 
-allyBerserk.InflictDamage(enemyFootman);
+allyPalladin.HealthIncreasedEvent += HPIncreased;
+allyPalladin.HealthDecreasedEvent += HPDecreased;
+allyPalladin.HealthNoChangeEvent += HPNoChange;
+allyPalladin.MilitaryUnitHitEvent += Attack;
 
-healer.InflictHeal(allyBerserk);
 
-allyBerserk.InflictDamage(enemyFootman);
+//
+enemyFootman2.ShowInfo();
+allyPalladin.ShowInfo();
 
+enemyFootman2.InflictDamage(allyPalladin);
+enemyFootman2.InflictDamage(allyPalladin);
+enemyFootman2.InflictDamage(allyPalladin);
+enemyFootman2.InflictDamage(allyPalladin);
+enemyFootman2.InflictDamage(allyPalladin);
+enemyFootman2.InflictDamage(allyPalladin);
+enemyFootman2.InflictDamage(allyPalladin);
+enemyFootman2.InflictDamage(allyPalladin);
+
+allyPalladin.InflictDamage(enemyFootman2);
+
+allyPalladin.SelfHeal();
 #region
 //enemyFootman.MilitaryUnitHitEvent += FootmanAttack;
 //enemyFootman.MilitaryUnitNonHitEvent += Absorb;
@@ -65,18 +78,6 @@ allyBerserk.InflictDamage(enemyFootman);
 //healer.ShowInfo();
 #endregion
 // методы ивентов
-static void FootmanAttack(string attackerName, string defenderName, int damage, int defense)
-{
-    Console.WriteLine($"{attackerName} ударил копьем и нанес {damage} урона");
-    Console.WriteLine($"Броня {defenderName.ToLower()} сдержала {defense} урона, но была пробита, прошло {damage-defense} урон(а)");
-}
-
-static void ArcherAttack(string attackerName, string defenderName, int damage, int defense)
-{
-    Console.WriteLine($"{attackerName} попал стрелой и нанес {damage} урона");
-    Console.WriteLine($"Броня {defenderName.ToLower()} сдержала {defense} урона, но была пробита, прошло {damage - defense} урон(а)");
-}
-
 static void HPIncreased(string name, int health, int maxHealth)
 {
     Console.ForegroundColor = ConsoleColor.DarkGreen;

@@ -18,12 +18,15 @@ namespace StrategyUnits.Buildings
         public Footman RecruitRookieFootman()
             => new Footman("Новичок с палкой", 60, 5, 4, 8);
         public Footman RecruitAdvancedFootman()
-            => new Footman("Бывалый с мечом", 80, 6, 10, 10);
+            => new Footman("Бывалый с мечом", 80, 25, 17, 17);
         public Footman RecruitBossFootman()
             => new Footman("Босс качалки со штангой", 100, 9, 8, 13);
 
         public Berserk RecruitBerserk()
             => new Berserk("Бешеный челик с рейджем", 50, 0, 20, 20);
+
+        public Palladin RecruitPalladin()
+            => new Palladin("Непробиваемый танк ИС-2", 50, 9, 20, 20, 100);
 
         public Archer RecruitRookieArcher()
             => new Archer("Новичок с горохострелом", 60, 5, 3, 7);

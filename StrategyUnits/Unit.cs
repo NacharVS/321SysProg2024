@@ -41,7 +41,7 @@
                 }
             }
         }
-        public int Defense { get; private set; }
+        public virtual int Defense { get; private set; }
         public int MaxHealth { get; private set; }
 
         public Unit(string? name, int health, int defense)

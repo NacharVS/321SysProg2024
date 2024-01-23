@@ -38,6 +38,15 @@ namespace StrategyUnits.MilitaryUnits
            => Console.WriteLine($"Юнит: {Name} | Здоровье: {Health}/{MaxHealth} | Броня: {Defense}\n");
 
         public virtual void InflictDamage(Unit unit)
-            => unit.Health -= (Damage - unit.Defense);
+        {
+            if (Health > 0)
+            {
+                unit.Health -= (Damage - unit.Defense);
+            }
+            else
+            {
+                Console.WriteLine("Я слишком умер, чтобы бить\n");
+            }
+        }
     }
 }

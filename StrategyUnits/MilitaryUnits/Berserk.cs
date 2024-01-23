@@ -25,7 +25,7 @@ namespace StrategyUnits.MilitaryUnits
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("*Рейдж мод активатион, тебя убиватион*");
-                    MilitaryUnitRageHitEvent.Invoke(Name, _damage * 2);
+                    MilitaryUnitRageHitEvent?.Invoke(Name, _damage * 2);
                     Console.ResetColor();
 
                     return _damage * 2;
