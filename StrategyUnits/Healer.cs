@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace StrategyUnits
 {
     internal class Healer : MagicUnit
     {
-        public Healer() : base(30, "Healer", 0, 1, 3, 30)
+        public Healer(int health, string? name, int armor, int minDamage, int maxDamage, int mana) : base(health, name, armor, minDamage, maxDamage, mana)
         {
-            _heal = 1;
+            _heal = 2;
         }
 
         private int _heal;
@@ -26,9 +27,9 @@ namespace StrategyUnits
             while (Mana != 0 && unit.Health < unit.MaxHealth)
             {
                 unit.Health += _heal;
-                Mana -= 2;
+                Mana -= 1;
             }
-            Console.WriteLine($"Лекарь восстановил юниту {unit.Name} {unit.Health - HealthBefore} здоровья, затратив {(unit.Health - HealthBefore) * 2} маны");
+            Console.WriteLine($"Лекарь восстановил юниту {unit.Name} {unit.Health - HealthBefore} здоровья, затратив {(unit.Health - HealthBefore) / 2} маны");
         }
     }
 }

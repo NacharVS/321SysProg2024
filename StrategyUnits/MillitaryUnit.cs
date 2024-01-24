@@ -33,6 +33,7 @@ namespace StrategyUnits
             Random rnd = new Random();
             int damage;
             damage = rnd.Next(MinDamage, MaxDamage) - unit.Armor;
+            Console.WriteLine($"Юнит {Name} наносит удар по юниту {unit.Name}");
             if (damage <= 0) Console.WriteLine($"{unit.Name} получил удар без какого-либо урона");
             else
             {

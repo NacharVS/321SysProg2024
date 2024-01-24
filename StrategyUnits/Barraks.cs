@@ -14,7 +14,7 @@ namespace StrategyUnits
 
         public Footman CreateFootman()
         {
-            return new Footman(40, "Footman", 1, 10, 15);
+            return new Footman(40, "Footman", 1, 2, 5);
         }
 
         public Berserk CreateBerserk()
@@ -22,9 +22,24 @@ namespace StrategyUnits
             return new Berserk(50, "Berserk", 2, 3, 10);
         }
 
+        public Knight CreateKnight()
+        {
+            return new Knight(50, "Knight", 3, 3, 7, 10);
+        }
+
         public Palladin CreatePalladin()
         {
-            return new Palladin(50, "Palladin", 5, 3, 7, 30);
+            return new Palladin(60, "Palladin", 5, 5, 9, 20);
         }
+
+        public Healer CreateHealer()
+        {
+            return new Healer(30, "Healer", 0, 1, 3, 30);
+        }
+        public Archer CreateArcher()
+        {
+            return new Archer(20, "Archer", 0, 5, 15);
+        }
+
     }
 }
