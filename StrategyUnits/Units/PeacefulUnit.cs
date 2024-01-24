@@ -5,18 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StrategyUnits.Buildings
+namespace StrategyUnits.Units
 {
-    internal class Building : IHealthControl
+    internal class PeacefulUnit : IHealthControl
     {
-        public string Name { get; set; }
         public int Health { get; set; }
-
-        public Building(string name, int health)
-        {
-            Name = name;
-            Health = health;
-        }
 
         public void TakeDamage(int damage)
         {
