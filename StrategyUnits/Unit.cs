@@ -76,10 +76,8 @@
 
         public virtual void TakeDamage(int damage)
         {
-            if (_defense <= 0) 
-            { 
+            
                 this.Health -= damage;
             }
-        }
     }
 }
