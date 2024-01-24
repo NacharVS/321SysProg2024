@@ -10,9 +10,10 @@ namespace StrategyUnits
     {
         private int _healing;
 
-        public Healer() : base("Healer", 40, 3, 1, 3, 60)
+        public Healer(string name, int health, int defense, int minDamage, int maxDamage, int manna, int healing)
+                : base(name, health, defense, minDamage, maxDamage, manna)
         {
-            _healing = 1;
+            _healing = healing;
         }
 
         public int Healing

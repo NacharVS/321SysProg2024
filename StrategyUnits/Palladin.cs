@@ -6,8 +6,27 @@ using System.Threading.Tasks;
 
 namespace StrategyUnits
 {
-    internal class Palladin : MilitaryUnit
+    internal class Paladin : Knight
     {
-        public Palladin() : base("Palladin", 50, 5, 13, 16) { }
+        public Paladin(string name, int health, int defense, int minDamage, int maxDamage, int manna)
+                : base(name, health, defense, minDamage, maxDamage, manna)
+            {
+            }
+        public override int Defense
+        {
+            get
+            {
+                if (Health < MaxHealth * 0.5)
+                {
+                    Console.WriteLine($"у {Name} броня увеличена в 2 раза!");
+                    return _defense * 2;
+                }
+                else
+                {
+                    return _defense; 
+                }
+            }
+        }
+        
     }
 }
