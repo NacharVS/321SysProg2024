@@ -55,7 +55,6 @@ Maxon.ShowInfo();
 
 
 
-
 static void GiveRageEvent(Unit unit)
 {
     Berserk berserk = (Berserk)unit;
