@@ -11,11 +11,13 @@ namespace StrategyUnits.Buildings
     {
         public string Name { get; set; }
         public int Health { get; set; }
+        public int MaxHealth { get; set; }
 
         public Building(string name, int health)
         {
             Name = name;
             Health = health;
+            MaxHealth = health;
         }
 
         public void TakeDamage(int damage)

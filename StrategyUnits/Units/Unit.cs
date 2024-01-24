@@ -44,7 +44,7 @@ namespace StrategyUnits.Units
                 }
             }
         }
-        public int MaxHealth { get; private set; }
+        public int MaxHealth { get; set; }
 
         public Unit(string name, int health)
         {

@@ -27,6 +27,9 @@ namespace StrategyUnits.Units
             {
                 Mana -= 2;
 
+                if (unit.Health == unit.MaxHealth)
+                    return;
+
                 unit.TakeHeal();
             }
         }
