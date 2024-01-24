@@ -11,11 +11,14 @@ namespace StrategyUnits.Buildings
     {
         public Barrack(string name, int health) : base(name, health) { }
 
-        public Barbarian TrainNewbieBarbarian()
-            => new Barbarian("Дохлячок", 75, 20, 5);
-        public Barbarian TrainRegularBarbarian()
-            => new Barbarian("Норм челик", 85, 25, 7);
-        public Barbarian TrainDangeonBarbarian()
-            => new Barbarian("Бос", 100, 30, 10);
+        public Barbarian TrainNewbieBarbarian() =>
+           new Barbarian("Дохлячок", 75, 20, 5);
+        public Barbarian TrainRegularBarbarian() =>
+           new Barbarian("Норм челик", 85, 25, 7);
+        public Barbarian TrainDangeonBarbarian() =>
+           new Barbarian("Бос", 100, 30, 10);
+
+        public Healer TrainHealer() =>
+            new Healer("Феечка", 15, 5, 100);
     }
 }

@@ -7,13 +7,11 @@ using System.Threading.Tasks;
 
 namespace StrategyUnits.Units
 {
-    internal class HostileUnit : IHealthControl, IAttackControl
+    internal class HostileUnit : Unit, IAttackControl
     {
-        public string Name { get; set; }
-        public int Health { get; set; }
-        public int Damage { get; set; }
+        public int Damage { get; set;}
 
-        public HostileUnit(string name, int health, int damage)
+        public HostileUnit(string name, int health, int damage) : base(name, health)
         {
             Name = name;
             Health = health;
@@ -22,12 +20,8 @@ namespace StrategyUnits.Units
 
         public void Attack(IHealthControl unit)
         {
+            Console.WriteLine($"{Name} атаковал с уроном {Damage}");
             unit.TakeDamage(Damage);
-        }
-
-        public virtual void TakeDamage(int damage)
-        {
-            Health -= damage;
         }
     }
 }

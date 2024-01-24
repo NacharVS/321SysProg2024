@@ -22,5 +22,9 @@ namespace StrategyUnits.Buildings
         {
             Health -= damage;
         }
+        public void TakeHeal()
+        {
+            Health++;
+        }
     }
 }

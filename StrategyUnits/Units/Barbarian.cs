@@ -17,6 +17,7 @@ namespace StrategyUnits.Units
 
         public override void TakeDamage(int damage)
         {
+            Console.WriteLine($"Броня сдержала {Protection} урон(а). {Name} получил {damage - Protection} урон(а)");
             Health -= damage - Protection;
         }
     }

@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace StrategyUnits.Interfaces
 {
-    internal interface IHealthControl
+    internal interface IHealContol
     {
-        public int Health { get; set; }
+        public int Mana { get; set; }
 
-        public void TakeDamage(int damage);
-        public void TakeHeal();
+        public void Heal(IHealthControl unit);
     }
 }

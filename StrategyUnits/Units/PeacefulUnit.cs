@@ -7,13 +7,11 @@ using System.Threading.Tasks;
 
 namespace StrategyUnits.Units
 {
-    internal class PeacefulUnit : IHealthControl
+    internal class PeacefulUnit : Unit
     {
-        public int Health { get; set; }
-
-        public void TakeDamage(int damage)
+        public PeacefulUnit(string name, int health) : base(name, health)
         {
-            Health -= damage;
+
         }
     }
 }
