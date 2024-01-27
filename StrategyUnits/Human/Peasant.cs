@@ -1,4 +1,4 @@
-﻿namespace StrategyUnits
+﻿namespace StrategyUnits.Human
 {
     internal class Peasant : Unit
     {

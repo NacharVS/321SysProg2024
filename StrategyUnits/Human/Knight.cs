@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StrategyUnits.Type;
 
-namespace StrategyUnits
+namespace StrategyUnits.Human
 {
     internal class Knight : magicUnit
     {
@@ -16,17 +17,17 @@ namespace StrategyUnits
         public void SelfHeal()
         {
             Console.WriteLine("Лечимся!");
-            if (this.Health < this.MaxHealth && Mana > 0)
+            if (Health < MaxHealth && Mana > 0)
             {
-                if (this.Health + 1 >= this.MaxHealth)
+                if (Health + 1 >= MaxHealth)
                 {
-                    this.Health = this.MaxHealth;
-                    this.HealDamage(Health);
+                    Health = MaxHealth;
+                    HealDamage(Health);
                     Console.WriteLine("Вылечен!");
                 }
                 else
                 {
-                    this.Health += _heal;
+                    Health += _heal;
                     Mana -= 2;
                     if (Mana < 0)
                     {

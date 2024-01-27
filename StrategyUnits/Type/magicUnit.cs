@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StrategyUnits
+namespace StrategyUnits.Type
 {
     internal class magicUnit : militaryUnits
     {
@@ -15,7 +15,7 @@ namespace StrategyUnits
             get { return _mana; }
             set { _mana = value; }
         }
-        public magicUnit(int health, string? name, int defence, int mana, int min_damage, int max_damage) :base(health, name, defence, min_damage, max_damage)
+        public magicUnit(int health, string? name, int defence, int mana, int min_damage, int max_damage) : base(health, name, defence, min_damage, max_damage)
         {
             Mana = mana;
             MaxMana = mana;

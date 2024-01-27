@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace StrategyUnits
+namespace StrategyUnits.Type
 {
     internal class militaryUnits : Unit
     {
@@ -35,7 +35,7 @@ namespace StrategyUnits
             _damage = _firstDamage - unit.Defence;
             unit.Health -= _damage;
             unit.TakeDamage(_damage);
-            Console.WriteLine($"Юнит: {this.Name} наносит удар своим болтом {_firstDamage} единиц по {unit.Name} при броне {unit.Defence}");
+            Console.WriteLine($"Юнит: {Name} наносит удар своим болтом {_firstDamage} единиц по {unit.Name} при броне {unit.Defence}");
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StrategyUnits
+namespace StrategyUnits.Human
 {
     internal class Berserker : Footman
     {
@@ -19,19 +19,19 @@ namespace StrategyUnits
         }
         public override void InflictDamage(Unit unit)
         {
-            if(this.Health > this.MaxHealth*0.5)
+            if (Health > MaxHealth * 0.5)
             {
                 base.InflictDamage(unit);
             }
             else
             {
-                Console.WriteLine($"{this.Name} в ярости!"); ; ;
+                Console.WriteLine($"{Name} в ярости!"); ; ;
                 Random rnd = new Random();
                 _firstDamage = rnd.Next(minDamage, maxDamage) * 2;
                 _damage = _firstDamage - unit.Defence;
                 unit.Health -= _damage;
                 unit.TakeDamage(_damage);
-                Console.WriteLine($"Юнит: {this.Name} наносит удар своим болтом {_firstDamage} единиц по {unit.Name} при броне {unit.Defence}");
+                Console.WriteLine($"Юнит: {Name} наносит удар своим болтом {_firstDamage} единиц по {unit.Name} при броне {unit.Defence}");
             }
         }
     }

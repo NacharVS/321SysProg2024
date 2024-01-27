@@ -1,4 +1,6 @@
-﻿using StrategyUnits;
+﻿using StrategyUnits.Building;
+using StrategyUnits.Human;
+using StrategyUnits.Witcher;
 
 Barracs barracs = new Barracs();
 Footman ft1 = barracs.CreateSuperFootman();
@@ -32,25 +34,33 @@ Palladin pl = barracs.CreatePalladin();
 //pl.Exorcizm(healer1);
 //healer1.ShowInfo();
 
+//test Palladin & Berserk
+//bs.InflictDamage(pl);
+//pl.ScintRow(kn);
+//kn.ShowInfo();
+//kn.SelfHeal();
+//bs.ShowInfo();
+//healer1.AddHeal(bs);
+//bs.InflictDamage(pl);
+//pl.ScintRow(bs);
+//bs.InflictDamage(pl);
 
-bs.InflictDamage(pl);
-pl.ScintRow(kn);
-kn.ShowInfo();
-kn.SelfHeal();
-bs.ShowInfo();
-healer1.AddHeal(bs);
-bs.InflictDamage(pl);
+//test IThroll 
+Throll throll = new Throll();
+Grunt grunt = new Grunt();
+throll.Attack(grunt);
+grunt.Attack(throll);
+Console.WriteLine(throll.Health);
+Console.WriteLine(grunt.Health);
 
-pl.ScintRow(bs);
-bs.InflictDamage(pl);
 
-static void MethodHeal(int number)
-{
-    Console.WriteLine($"Health has added. Current: {number}");
-}
-static void MethodUnHeal(int number)
-{
-    Console.WriteLine($"Health has disadded. Current: {number}");
-}
+//static void MethodHeal(int number)
+//{
+//    Console.WriteLine($"Health has added. Current: {number}");
+//}
+//static void MethodUnHeal(int number)
+//{
+//    Console.WriteLine($"Health has disadded. Current: {number}");
+//}
 
 

@@ -4,8 +4,9 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using StrategyUnits.Type;
 
-namespace StrategyUnits
+namespace StrategyUnits.Human
 {
     internal class Palladin : Knight
     {
@@ -28,7 +29,7 @@ namespace StrategyUnits
         {
             Console.WriteLine("Напитки из черноголовки");
             magicUnit.Mana -= 2;
-            this.Mana += 2;
+            Mana += 2;
         }
         public override void ShowInfo()
         {

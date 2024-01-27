@@ -1,4 +1,6 @@
-﻿namespace StrategyUnits
+﻿using StrategyUnits.Type;
+
+namespace StrategyUnits.Human
 {
     internal class Footman : militaryUnits
     {

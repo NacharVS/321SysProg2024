@@ -4,18 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using StrategyUnits.Type;
 
-namespace StrategyUnits
+namespace StrategyUnits.Human
 {
     internal class Healer : magicUnit
     {
         private int _heal;
 
-        public int Heal { 
+        public int Heal
+        {
             get { return _heal; }
             set { _heal = value; }
         }
-        
+
         public Healer() : base(50, "Healer", 0, 30, 2, 5)
         {
             _heal = 1;
@@ -24,11 +26,11 @@ namespace StrategyUnits
         {
             while (unit.Health < unit.MaxHealth && Mana > 0)
             {
-                if (unit.Health+1 >= unit.MaxHealth)
+                if (unit.Health + 1 >= unit.MaxHealth)
                 {
                     unit.Health = unit.MaxHealth;
                     unit.HealDamage(Health);
-                    Console.WriteLine($"{this.Name} вылечил {unit.Name}");
+                    Console.WriteLine($"{Name} вылечил {unit.Name}");
                 }
                 else
                 {
@@ -43,7 +45,7 @@ namespace StrategyUnits
         }
         public override void ShowInfo()
         {
-            Console.WriteLine($"Юнит:{this.Name} Mana: {Mana}/{MaxMana} Здровье: {Health}/{MaxHealth}");
+            Console.WriteLine($"Юнит:{Name} Mana: {Mana}/{MaxMana} Здровье: {Health}/{MaxHealth}");
         }
     }
 }
