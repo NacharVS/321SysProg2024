@@ -26,5 +26,10 @@ namespace StrategyUnits
         {
             return new Knight("Fool", 10, 5, 0);
         }
+        
+        public Priest CreatePrist()
+        {
+            return new Priest("Priest", 30, 5, 50);
+        }
     }
 }

@@ -10,7 +10,7 @@ internal class Program
         Knight knight = spawner.CreateSimpleKinght();
         Healer healer = spawner.CreateSimpleHealer();
         Knight fool = spawner.CreateFool();
-
+        Priest priest = spawner.CreatePrist();
         #region Scene1
         knight.Attack(barbarian);
         knight.Attack(barbarian);
@@ -21,6 +21,8 @@ internal class Program
         barbarian.Attack(fool);
         barbarian.Attack(fool);
         healer.Healing(fool);
+        priest.ManaRestoring(healer);
+        Console.WriteLine(healer.ManaReserve);
         #endregion
 
     }

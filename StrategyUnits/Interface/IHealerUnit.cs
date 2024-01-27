@@ -15,5 +15,7 @@ namespace StrategyUnits.Interface
         public int ManaReserve { get; set; }
 
         public void Healing(IHealthControll unit);
+
+        public void TakeMana(int mana);
     }
 }

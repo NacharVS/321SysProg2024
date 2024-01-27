@@ -4,20 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace StrategyUnits.Units
 {
-    internal class Healer : Unit, IHealerUnit, IProtectedUnit
+    internal class Priest : Unit, IManaRestore, IHealerUnit
     {
         private const int _healerBenefit = 2;
         private const int _healCost = 10;
-        public Healer(string name, int health, int defense, int heal, int manaReserve) : base(health, name)
+        public Priest(string name, int health, int heal, int manaReserve) : base(health, name)
         {
-            Defense = defense;
             Heal = heal;
             ManaReserve = manaReserve;
         }
+
 
         public int Heal { get; set; }
         public int ManaReserve { get; set; }
@@ -36,6 +35,23 @@ namespace StrategyUnits.Units
                 ManaReserve -= _healCost;
             }
         }
+
+        public void ManaRestoring(IHealerUnit unit)
+        {
+            if (ManaReserve < 0)
+                ManaReserve = 0;
+            while (ManaReserve >= _healCost)
+            {
+                unit.TakeMana(Heal);
+                ManaReserve -= _healCost;
+            }
+        }
+
+        public void ManaRestoring()
+        {
+            throw new NotImplementedException();
+        }
+
         public override void TakeDamage(int damage)
         {
             Health -= damage - Defense;
@@ -48,8 +64,7 @@ namespace StrategyUnits.Units
 
         public void TakeMana(int mana)
         {
-            ManaReserve += mana;
-            Console.WriteLine($"'{Name}' take {mana}mana.");
+            throw new NotImplementedException();
         }
     }
 }
