@@ -1,0 +1,15 @@
+C:\Users\Batik\Source\Repos\321SysProg202455\StrategyUnits\bin\Debug\net6.0\StrategyUnits.exe
+C:\Users\Batik\Source\Repos\321SysProg202455\StrategyUnits\bin\Debug\net6.0\StrategyUnits.deps.json
+C:\Users\Batik\Source\Repos\321SysProg202455\StrategyUnits\bin\Debug\net6.0\StrategyUnits.runtimeconfig.json
+C:\Users\Batik\Source\Repos\321SysProg202455\StrategyUnits\bin\Debug\net6.0\StrategyUnits.dll
+C:\Users\Batik\Source\Repos\321SysProg202455\StrategyUnits\bin\Debug\net6.0\StrategyUnits.pdb
+C:\Users\Batik\Source\Repos\321SysProg202455\StrategyUnits\obj\Debug\net6.0\StrategyUnits.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Batik\Source\Repos\321SysProg202455\StrategyUnits\obj\Debug\net6.0\StrategyUnits.AssemblyInfoInputs.cache
+C:\Users\Batik\Source\Repos\321SysProg202455\StrategyUnits\obj\Debug\net6.0\StrategyUnits.AssemblyInfo.cs
+C:\Users\Batik\Source\Repos\321SysProg202455\StrategyUnits\obj\Debug\net6.0\StrategyUnits.csproj.CoreCompileInputs.cache
+C:\Users\Batik\Source\Repos\321SysProg202455\StrategyUnits\obj\Debug\net6.0\StrategyUnits.sourcelink.json
+C:\Users\Batik\Source\Repos\321SysProg202455\StrategyUnits\obj\Debug\net6.0\StrategyUnits.dll
+C:\Users\Batik\Source\Repos\321SysProg202455\StrategyUnits\obj\Debug\net6.0\refint\StrategyUnits.dll
+C:\Users\Batik\Source\Repos\321SysProg202455\StrategyUnits\obj\Debug\net6.0\StrategyUnits.pdb
+C:\Users\Batik\Source\Repos\321SysProg202455\StrategyUnits\obj\Debug\net6.0\StrategyUnits.genruntimeconfig.cache
+C:\Users\Batik\Source\Repos\321SysProg202455\StrategyUnits\obj\Debug\net6.0\ref\StrategyUnits.dll
