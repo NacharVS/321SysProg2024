@@ -1,14 +1,18 @@
 ﻿using StrategyUnits;
+using StrategyUnits.Buildings;
 using StrategyUnits.Unit;
 
 Footman f1 = new Footman();
 Footman f2 = new Footman();
+Healer h1 = new Healer();
+Palladin guts = new Palladin();
+Knight k1 = new Knight();
+Altar altar = new Altar();
 
-f1.Attack(f2);
-f1.Attack(f2);
-f1.Attack(f2);
-f1.Attack(f2);
-f1.Attack(f2);
+guts.SaintRow(f2);
+altar.RecoverMana(guts);
+guts.SaintRow(f1);
+
 
 //Footman footman = obama.CreateFootman();
 //Footman footman2 = obama.CreateFootman();

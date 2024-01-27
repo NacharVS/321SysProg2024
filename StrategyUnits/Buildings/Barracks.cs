@@ -1,46 +1,71 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-//using StrategyUnits.Buildings;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using StrategyUnits.Unit;
+using StrategyUnits.Interface;
 
-//namespace StrategyUnits
-//{
-//    internal class Barracks : Build
-//    {
-//        public Barracks() : base(200, "Barracks")
-//        {
-//        }
+namespace StrategyUnits
+{
+    internal class Barracks : IHealthControl
+    {
+        public Barracks() 
+        {
+            Name = "Barrack";
+            MaxHealth = 300;
+            Health = 300;
+            IsDead = false;
+        }
 
-//        public Footman CreateFootman() 
-//        {
-//            return new Footman(40, "Footman", 1, 2, 5);
-//        }
+        public int MaxHealth { get; set; }
+        public int Health { get; set; }
+        public string Name { get; set; }
+        public bool IsDead { get; set; }
 
-//        public Berserk CreateBerserk()
-//        {
-//            return new Berserk(50, "Berserk", 2, 3, 10);
-//        }
+        public void TakeDamage(int damage)
+        {
+            Health -= damage;
+            if (Health < 0)
+            {
+                Health = 0;
+                Console.WriteLine($"{Name} разрушен.");
+                IsDead = true;
+            }
+            else Console.WriteLine($"{Name} получил {damage} урона. Тек. здоровье: {Health}/{MaxHealth}");
+        }
 
-//        public Knight CreateKnight()
-//        {
-//            return new Knight(50, "Knight", 3, 3, 7, 10);
-//        }
+        public void TakeHeal(int heal)
+        {
+            Health += heal;
+            if (Health > MaxHealth)
+                Health = MaxHealth;
+            else Console.WriteLine($"{Name} уже не спасти...");
+        }
 
-//        public Palladin CreatePalladin()
-//        {
-//            return new Palladin(60, "Palladin", 5, 5, 9, 20);
-//        }
+        public Footman CreateFootman()
+        {
+            return new Footman();
+        }
 
-//        public Healer CreateHealer()
-//        {
-//            return new Healer(30, "Healer", 0, 1, 3, 30);
-//        }
-//        public Archer CreateArcher()
-//        {
-//            return new Archer(20, "Archer", 0, 5, 15);
-//        }
+        public Berserk CreateBerserk()
+        {
+            return new Berserk();
+        }
 
-//    }
-//}
+        public Knight CreateKnight()
+        {
+            return new Knight();
+        }
+
+        public Palladin CreatePalladin()
+        {
+            return new Palladin();
+        }
+
+        public Healer CreateHealer()
+        {
+            return new Healer();
+        }
+    }
+}
