@@ -10,23 +10,54 @@ namespace StrategyUnits.Units
 {
     internal class Unit : IHealthControll
     {
-        public Unit(int health, string? name)
+        private int _health;
+        private int _maxHealth;
+        private bool _isAlive = true;
+
+        public string Name { get; set; }
+
+        public bool IsAlive { get { return _isAlive; } }
+        public int Health
         {
-            Health = health;
-            Name = name;
+            get { return _health; }
+            set
+            {
+                if (value < IHealthControll.minHealth)
+                {
+                    _health = IHealthControll.minHealth;
+                    _maxHealth = IHealthControll.minHealth;
+                }
+                else
+                    _health = value;
+                _health = Math.Min(Math.Max(value, 0), MaxHealth);
+                if (value <= 0)
+                    _isAlive = false;
+                
+            }
         }
 
-        public int Health { get; set; }
-        public string? Name { get; set; }
+        public int MaxHealth
+        {
+            get { return _maxHealth; }
+        }
 
-        public void TakeDamage(int damage)
+        public Unit(int health, string name)
+        {
+            _maxHealth = health;
+            Name = name;
+            Health = health;
+
+        }
+
+        public virtual void TakeDamage(int damage)
         {
             Health -= damage;
         }
 
-        public void TakeHeal(int heal)
+        public virtual void TakeHealth(int heal)
         {
             Health += heal;
         }
+
     }
 }

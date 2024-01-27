@@ -1,15 +1,27 @@
-﻿using StrategyUnits.Units;
+﻿using StrategyUnits;
+using StrategyUnits.Units;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
-        Throll throll = new Throll();
-        Grunt grunt = new Grunt();
+        Spawner spawner = new Spawner();
+        Barbarian barbarian = spawner.CreateSimpleBarbarian();
+        Knight knight = spawner.CreateSimpleKinght();
+        Healer healer = spawner.CreateSimpleHealer();
+        Knight fool = spawner.CreateFool();
 
-        throll.Attack(grunt);
-        grunt.Attack(throll);
-        Console.WriteLine(throll.Health);
-        Console.WriteLine(grunt.Health);
+        #region Scene1
+        knight.Attack(barbarian);
+        knight.Attack(barbarian);
+        barbarian.Attack(knight);
+        healer.Healing(barbarian);
+        fool.Attack(barbarian);
+        knight.Selfheal();
+        barbarian.Attack(fool);
+        barbarian.Attack(fool);
+        healer.Healing(fool);
+        #endregion
+
     }
 }

@@ -2,12 +2,14 @@
 {
     internal interface IHealthControll
     {
-        const int minHealth = 0;
+        const int minHealth = 10;
         public  int Health { get; set; }
-        public string? Name { get; set; }
+        public string Name { get; set; }
+
+        public int MaxHealth { get; }
 
         public void TakeDamage(int damage);
 
-        public void TakeHeal(int heal);
+        public void TakeHealth(int heal);
     }
 }

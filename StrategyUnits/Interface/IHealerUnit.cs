@@ -9,7 +9,11 @@ namespace StrategyUnits.Interface
     internal interface IHealerUnit
     {
         const int minHeal = 1;
+
         public int Heal { get; set; }
+
+        public int ManaReserve { get; set; }
+
         public void Healing(IHealthControll unit);
     }
 }
