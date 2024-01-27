@@ -9,7 +9,7 @@ namespace StrategyUnits.Units
 {
     internal class HostileUnit : Unit, IAttackControl
     {
-        public int Damage { get; set;}
+        public int Damage { get; set; }
 
         public HostileUnit(string name, int health, int damage) : base(name, health)
         {
@@ -18,10 +18,17 @@ namespace StrategyUnits.Units
             Damage = damage;
         }
 
-        public void Attack(IHealthControl unit)
+        public virtual void Attack(IHealthControl unit)
         {
-            Console.WriteLine($"{Name} атаковал с уроном {Damage}");
-            unit.TakeDamage(Damage);
+            if (Health > 0)
+            {
+                Console.WriteLine($"{Name} атаковал с уроном {Damage}");
+                unit.TakeDamage(Damage);
+            }
+            else
+            {
+                Console.WriteLine("Я как бы мертв для атаки\n");
+            }
         }
     }
 }
