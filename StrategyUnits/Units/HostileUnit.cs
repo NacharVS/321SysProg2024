@@ -30,5 +30,11 @@ namespace StrategyUnits.Units
                 Console.WriteLine("Я как бы мертв для атаки\n");
             }
         }
+
+        public void Attack(IBuildingHealth building)
+        {
+            Console.WriteLine($"{Name} атаковал с уроном {Damage}");
+            building.TakeDamage(Damage);
+        }
     }
 }

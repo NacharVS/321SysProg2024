@@ -53,7 +53,7 @@ namespace StrategyUnits.Units
             MaxHealth = health;
         }
 
-        public virtual void ShowInfo() => 
+        public virtual void ShowInfo() =>
             Console.WriteLine($"{Name} | {Health}/{MaxHealth} HP");
 
         public virtual void TakeDamage(int damage)
@@ -65,7 +65,7 @@ namespace StrategyUnits.Units
         public virtual void TakeHeal()
         {
             Console.WriteLine($"{Name} получил +1 хп");
-            Health ++;
+            Health++;
         }
 
         public event HealthChangeDeledate? HealthStayedEvent;

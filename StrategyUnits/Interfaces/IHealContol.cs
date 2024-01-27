@@ -10,6 +10,6 @@ namespace StrategyUnits.Interfaces
     {
         public int Mana { get; set; }
 
-        public void Heal(IHealthControl unit);
+        public void Heal(IHealingControl unit);
     }
 }

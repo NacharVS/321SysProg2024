@@ -11,5 +11,7 @@ namespace StrategyUnits.Interfaces
         public int Damage { get; set; }
 
         public void Attack(IHealthControl unit);
+        public void Attack(IBuildingHealth building);
+
     }
 }

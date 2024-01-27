@@ -14,7 +14,7 @@ namespace StrategyUnits.Units
 
         }
 
-        public void Heal(IHealthControl unit)
+        public void Heal(IHealingControl unit)
         {
             while (Mana >= 2)
             {

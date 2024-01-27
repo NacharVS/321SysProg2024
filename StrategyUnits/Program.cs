@@ -4,6 +4,7 @@ using StrategyUnits.Units;
 // спавн юнитов
 Barrack barrack = new Barrack("Обэмэ", 1000);
 
+Builder builder = new Builder("Боб строитель", 50);
 Barbarian barbarian = barrack.TrainRegularBarbarian();
 Lumberjack lumberjack = barrack.TrainLumberjack();
 Palladin palladin = barrack.TrainPalladin();
@@ -16,22 +17,31 @@ SetHealthTracker(lumberjack);
 SetHealthTracker(palladin);
 SetHealthTracker(enemyBarbarian);
 SetHealthTracker(healer);
+SetBuildingHealthTracker(barrack);
+
+barbarian.Attack(barrack);
+barbarian.Attack(barrack);
+barbarian.Attack(barrack);
+barrack.ShowInfo();
+builder.Repair(barrack);
+barrack.ShowInfo();
+
 
 #region тест защита х2
-barbarian.ShowInfo();
-palladin.ShowInfo();
+//barbarian.ShowInfo();
+//palladin.ShowInfo();
 
-barbarian.Attack(barbarian);
-barbarian.Attack(barbarian);
-barbarian.Attack(barbarian);
-barbarian.Attack(barbarian);
-barbarian.Attack(barbarian);
-barbarian.Attack(barbarian);
-barbarian.Attack(palladin);
-barbarian.Attack(palladin);
-barbarian.Attack(palladin);
+//barbarian.Attack(barbarian);
+//barbarian.Attack(barbarian);
+//barbarian.Attack(barbarian);
+//barbarian.Attack(barbarian);
+//barbarian.Attack(barbarian);
+//barbarian.Attack(barbarian);
+//barbarian.Attack(palladin);
+//barbarian.Attack(palladin);
+//barbarian.Attack(palladin);
 
-palladin.SelfHeal();
+//palladin.SelfHeal();
 #endregion
 
 #region тест рейдж мода
@@ -52,6 +62,12 @@ static void SetHealthTracker(Unit unit)
     unit.HealthIncreasedEvent += HPIncreased;
     unit.HealthDecreasedEvent += HPDecreased;
     unit.HealthStayedEvent += HPStayed;
+}
+static void SetBuildingHealthTracker(Building building)
+{
+    building.HealthIncreasedEvent += HPIncreased;
+    building.HealthDecreasedEvent += HPDecreased;
+    building.HealthStayedEvent += HPStayed;
 }
 
 static void HPIncreased(int health, int maxHealth)

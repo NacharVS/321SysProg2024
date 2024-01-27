@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace StrategyUnits.Interfaces
 {
-    internal interface IHealthControl
+    internal interface IBuildingHealth : IHealthControl
     {
-        public int Health { get; set; }
-        public int MaxHealth { get; set; }
-
-        public void TakeDamage(int damage);
+        public void TakeRepair();
     }
 }
