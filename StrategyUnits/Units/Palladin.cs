@@ -20,10 +20,19 @@ namespace StrategyUnits.Units
             if (Health > 0 && Health <= MaxHealth * 0.5)
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("*Бронер Бытер Иннер Зезер Активетер*");
-                Console.WriteLine($"Броня сдержала {Protection * 2} урон(а). {Name} получил {damage - Protection * 2} урон(а)");
+                if (damage < Protection * 2) 
+                {
+                    Console.WriteLine("*Бронер Бытер Иннер Зезер Активетер*");
+                    Console.WriteLine($"Броня сдержала весь урон {damage}");
+                }
+                else
+                {
+                    Console.WriteLine("*Бронер Бытер Иннер Зезер Активетер*");
+                    Console.WriteLine($"Броня сдержала {Protection * 2} урон(а). {Name} получил {damage - Protection * 2} урон(а)");
+                    Health -= damage - Protection * 2;
+                }         
                 Console.ResetColor();
-                Health -= damage - Protection * 2;
+
             }
             else
             {

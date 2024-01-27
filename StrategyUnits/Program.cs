@@ -21,12 +21,12 @@ SetHealthTracker(healer);
 barbarian.ShowInfo();
 palladin.ShowInfo();
 
-barbarian.Attack(palladin);
-barbarian.Attack(palladin);
-barbarian.Attack(palladin);
-barbarian.Attack(palladin);
-barbarian.Attack(palladin);
-barbarian.Attack(palladin);
+barbarian.Attack(barbarian);
+barbarian.Attack(barbarian);
+barbarian.Attack(barbarian);
+barbarian.Attack(barbarian);
+barbarian.Attack(barbarian);
+barbarian.Attack(barbarian);
 barbarian.Attack(palladin);
 barbarian.Attack(palladin);
 barbarian.Attack(palladin);
