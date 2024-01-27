@@ -13,9 +13,6 @@ namespace StrategyUnits.Stats
         public int MinDamage { get; set; }
         public int MaxDamage { get; set; }
 
-        public void Attack(IHealth unit)
-        {
-
-        }
+        public void Attack(IHealth unit);
     }
 }

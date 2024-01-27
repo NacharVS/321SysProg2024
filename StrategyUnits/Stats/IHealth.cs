@@ -9,16 +9,9 @@ namespace StrategyUnits.Stats
     internal interface IHealth
     {
         public int Health { get; set; }
-        public int MaxHealth { get; set; }
+        public int MaxHealth { get ; set; }
 
-        public void TakeDamage(int damage)
-        {
-
-        }
-
-        public void TakeHeal(int health)
-        {
-
-        }
+        public void TakeDamage(int damage);
+        public void TakeHeal(int heal);
     }
 }

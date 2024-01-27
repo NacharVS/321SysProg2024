@@ -11,9 +11,6 @@ namespace StrategyUnits.Stats
         public int Mana { get; set; }
         public int MaxMana { get; set; }
 
-        public void GiveMana(int mana)
-        {
-
-        }
+        public void GiveMana(int mana);
     }
 }
