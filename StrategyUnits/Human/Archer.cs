@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using StrategyUnits.Interfaces;
-using StrategyUnits.Type;
+﻿using StrategyUnits.Interfaces;
 
 namespace StrategyUnits.Human
 {
@@ -19,6 +13,12 @@ namespace StrategyUnits.Human
         public int Health { get; set; }
         public int Damage { get; set; }
         public int Combo { get; set; }
+
+        public void AddHealth(int quantity)
+        {
+            Health += quantity;
+        }
+
         public void Attack (IHealthControll unit)
         {
             int _doneCombo = 0;

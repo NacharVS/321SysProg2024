@@ -1,9 +1,4 @@
 ﻿using StrategyUnits.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StrategyUnits.Witcher
 {
@@ -16,6 +11,12 @@ namespace StrategyUnits.Witcher
         }
         public int Health { get; set; }
         public int Damage { get; set; }
+
+        public void AddHealth(int quantity)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Attack(IHealthControll unit)
         {
             unit.TakeDamage(Damage);
