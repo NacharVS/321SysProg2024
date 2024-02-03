@@ -1,6 +1,4 @@
-﻿using System.Xml.Linq;
-using StrategyUnits.Interface;
-using static System.Net.Mime.MediaTypeNames;
+﻿using StrategyUnits.Interface;
 
 namespace StrategyUnits.Unit
 {
