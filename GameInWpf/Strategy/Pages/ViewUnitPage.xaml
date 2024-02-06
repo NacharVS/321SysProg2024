@@ -1,0 +1,80 @@
+﻿<Page x:Class="Strategy.Pages.ViewUnitPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Strategy.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ViewUnitPage"
+      Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <ComboBox x:Name="CBUnit"
+                      SelectionChanged="CBUnit_SelectionChanged">
+                <TextBlock Text="Warrior" />
+                <TextBlock Text="Rogue" />
+                <TextBlock Text="Wizard" />
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="Strength" />
+            <StackPanel Orientation="Horizontal">
+                <TextBox Text="{Binding CurrentStrength, UpdateSourceTrigger=PropertyChanged}"
+                         x:Name="TBStrength"
+                         TextChanged="TextBox_TextChanged"
+                         PreviewTextInput="TBStrength_PreviewTextInput"/>
+                <TextBlock Text="/" />
+                <TextBlock Text="{Binding MaxStrength}" />
+            </StackPanel>
+            <TextBlock Text="Dexterity" />
+            <StackPanel Orientation="Horizontal">
+                <TextBox Text="{Binding CurrentDexterity, UpdateSourceTrigger=PropertyChanged}"
+                         x:Name="TBDexterity"
+                         TextChanged="TextBox_TextChanged"
+                         PreviewTextInput="TBStrength_PreviewTextInput"/>
+                <TextBlock Text="/" />
+                <TextBlock Text="{Binding MaxDexterity}" />
+            </StackPanel>
+            <TextBlock Text="Inteligence" />
+            <StackPanel Orientation="Horizontal">
+                <TextBox Text="{Binding CurrentInteligence, UpdateSourceTrigger=PropertyChanged}"
+                         TextChanged="TextBox_TextChanged"
+                         x:Name="TBInteligence"
+                         PreviewTextInput="TBStrength_PreviewTextInput"/>
+                <TextBlock Text="/" />
+                <TextBlock Text="{Binding MaxInteligence}" />
+            </StackPanel>
+            <TextBlock Text="Vitality" />
+            <StackPanel Orientation="Horizontal">
+                <TextBox Text="{Binding CurrentVitality, UpdateSourceTrigger=PropertyChanged}"
+                         TextChanged="TextBox_TextChanged"
+                         x:Name="TBVitality"
+                         PreviewTextInput="TBStrength_PreviewTextInput"/>
+                <TextBlock Text="/" />
+                <TextBlock Text="{Binding MaxVitality}" />
+            </StackPanel>
+            <TextBlock Text="Health" />
+            <TextBlock Text="{Binding Health}" />
+            <TextBlock Text="Mana" />
+            <TextBlock Text="{Binding Mana}" />
+            <TextBlock Text="Damage" />
+            <TextBlock Text="{Binding Damage}" />
+            <TextBlock Text="Armor" />
+            <TextBlock Text="{Binding Armor}" />
+            <TextBlock Text="MediumDamage" />
+            <TextBlock Text="{Binding MediumDamage}" />
+            <TextBlock Text="MediumDefense" />
+            <TextBlock Text="{Binding MediumDefense}" />
+            <TextBlock Text="CriticalChanse" />
+            <TextBlock Text="{Binding CriticalChanse}" />
+            <TextBlock Text="CriticalChanse" />
+            <TextBlock Text="{Binding CriticalChanse}" />
+        </StackPanel>
+    </Grid>
+</Page>
