@@ -10,8 +10,56 @@ Mana		1/1 int		1.2/int		1.5/int
 p.damage		1/str		0.5/str+0.5dex	0.5/str				
 armor		1/dex		1.5/dex		1/dex
 m.damage	0.2/int		0.2/int		1/int
-m.defense		0.5/int		0.5/int		1/int
+m.defense	0.5/int		0.5/int		1/int
 crt.chanse		0.2/dex		0.2/dex		0.2/dex	
 crt.damage	0.1/dex		0.1/dex		0.1/dex
 
-statpoints - textbox	
+statpoints 
+	level        exp total		exp to gain
+	1	0		0
+	2	1000		1000	
+	3	3000		2000
+	4	6000		3000
+	5	10000		4000
+	6	15000		5000
+	7	21000		6000
+	8	28000		7000
+	9	36000		8000
+
+weapons(3 types - common, enchanted(+2 bonus prop), rare(+4 bonus prop)):
+	1. Wand/Staff 
+		- very Low p/ damage
+		- ManaUp
+		- IntUp
+		- * MagicCrit (5% crt. chanse, 300% crit. damage)
+	2. Dagger
+		- low p. damage
+		- normal dex up
+		- dual avalible*
+		- СС + 60% / CD + 70%
+	3. Sword
+		- normal p.damage
+		- low dex/str up
+		- shield avalible
+		- СС + 35% / CD + 150%
+	4.Axe 
+		- high p.damage
+		- high str up
+		- shield awalible
+		- СС + 20% / CD + 170%
+	5. Mace/Hammer
+		- high p.damage
+		- normal str/ HP up
+		- shield awalible
+		- СС + 10% / CD + 250%
+	6. TwoHanded Weapon
+		- ...
+		- shield not avalible
+		- all parameters x1.7	without cc & cd
+
+		
+
+
+
+
+
