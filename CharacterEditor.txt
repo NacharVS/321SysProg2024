@@ -57,6 +57,44 @@ weapons(3 types - common, enchanted(+2 bonus prop), rare(+4 bonus prop)):
 		- shield not avalible
 		- all parameters x1.7	without cc & cd
 
+equipment (3 types - common/ enchanted(+1 bonus prop), rare (+2 bonus prop)):
+	1. Robe(common properties)		requirements: 
+		- low armor class			- low str		
+		- high mana up			- low vitality
+		- high int up
+		- low hp up
+	
+	2. Leather Armor		
+		- normal armor class			- norm str
+		- high dex up
+		- norm hp up
+		- low str up
+
+	3. Chain Armor
+		- high armor class			- norm str
+		- normal str up			- lvl over 10
+		- norm hp up
+		- low dex down
+
+	4. Plate Armor
+		- very high armor class		- high str
+		- high str up			- normal vitality
+		- high hp up			- lvl over 15
+		- high dex down
+
+	5. Ring(2 any common properties without armor class)
+
+	6. Amulet (3 any common properties, rare can give +XX to all characteristics)
+
+	7. Helmet
+		- armor class * lvl 			- str * lvl
+		- hp up * lvl
+
+	8. Shield
+		- armor class * lvl 			- str * lvl	
+		- chanse of blocking(5-25%)
+		- dex down * lvl
+
 		
 
 
