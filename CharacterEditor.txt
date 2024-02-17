@@ -82,7 +82,7 @@ equipment (3 types - common/ enchanted(+1 bonus prop), rare (+2 bonus prop)):
 		- high hp up			- lvl over 15
 		- high dex down
 
-	5. Ring(2 any common properties without armor class)
+	5. Ring(2 any common properties without armor class) 2 rings avaloble to wear
 
 	6. Amulet (3 any common properties, rare can give +XX to all characteristics)
 
@@ -95,9 +95,10 @@ equipment (3 types - common/ enchanted(+1 bonus prop), rare (+2 bonus prop)):
 		- chanse of blocking(5-25%)
 		- dex down * lvl
 
-		
 
 
+- all items must have REQUIREMENTS
+- all items must have INFO
 
 
 
