@@ -1,0 +1,15 @@
+﻿<Window x:Class="AsyncAwaitExamples.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AsyncAwaitExamples"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="btn1" Content="1" HorizontalAlignment="Left" Margin="65,228,0,0" VerticalAlignment="Top" Height="110" Width="300" FontSize="48" Click="btn1_Click"/>
+        <Button Content="2" HorizontalAlignment="Left" Margin="418,228,0,0" VerticalAlignment="Top" Height="110" Width="300" FontSize="48" Click="Button_Click"/>
+        <Label x:Name="lbl1" Content="" HorizontalAlignment="Left" Margin="215,44,0,0" VerticalAlignment="Top" Height="85" Width="408" FontSize="36"/>
+
+    </Grid>
+</Window>
